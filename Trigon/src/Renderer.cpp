@@ -20,7 +20,7 @@ MessageCallback(GLenum source,
 		type, severity, message);
 }
 
-GLuint vertexArrayID;
+GLuint vertexArrayID = NULL;
 
 void
 Renderer::CreateInstance()
@@ -94,7 +94,7 @@ Renderer::DrawVertices(unsigned int vertexBuffer)
 	if (currentShader == nullptr)
 	{
 		#ifdef _DEBUG
-		Debug::LogError("No default shader assign! Can't render...");
+		Debug::LogError("No shader assign! Can't render...");
 		#endif
 		return;
 	}
