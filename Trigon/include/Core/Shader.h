@@ -9,17 +9,22 @@ class Shader
 public:
 	unsigned int programID;
 
-	void virtual OnDraw(unsigned int vertexBuffer);
+	virtual void OnDraw(unsigned int vertexBuffer);
 };
 
-class ShaderVertex
+class ShaderVertex : public Shader
 {
 private:
+public:
+	void OnDraw(unsigned int vertexBuffer) override;
 };
 
-class ShaderUnlitTextured
+class ShaderUnlitTextured : public Shader
 {
 private:
+
+public:
+	void OnDraw(unsigned int vertexBuffer) override;
 
 };
 
