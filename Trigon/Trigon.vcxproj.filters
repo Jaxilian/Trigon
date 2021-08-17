@@ -11,6 +11,8 @@
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="Dependencies\glad\debug\src\gl.c" />
     <ClCompile Include="Dependencies\glad\release\src\gl.c" />
+    <ClCompile Include="Dependencies\OpenFBX\miniz.c" />
+    <ClCompile Include="Dependencies\OpenFBX\ofbx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Application.h" />
@@ -301,6 +303,8 @@
     <ClInclude Include="Dependencies\glad\release\include\glad\gl.h" />
     <ClInclude Include="Dependencies\glad\debug\include\KHR\khrplatform.h" />
     <ClInclude Include="Dependencies\glad\debug\include\glad\gl.h" />
+    <ClInclude Include="Dependencies\OpenFBX\miniz.h" />
+    <ClInclude Include="Dependencies\OpenFBX\ofbx.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\glm\glm\gtx\associated_min_max.inl" />

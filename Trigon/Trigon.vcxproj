@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glad\debug\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Project\C++\Trigon\Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glad\debug\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -113,7 +113,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glad\release\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Project\C++\Trigon\Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glad\release\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -134,7 +134,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glad\debug\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Project\C++\Trigon\Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glad\debug\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -155,7 +155,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glad\release\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Project\C++\Trigon\Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glad\release\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -175,6 +175,8 @@
     <ClCompile Include="Dependencies\glad\debug\src\gl.c" />
     <ClCompile Include="Dependencies\glad\release\src\gl.c" />
     <ClCompile Include="Dependencies\glm\glm\detail\glm.cpp" />
+    <ClCompile Include="Dependencies\OpenFBX\miniz.c" />
+    <ClCompile Include="Dependencies\OpenFBX\ofbx.cpp" />
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\Matrix4.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
@@ -463,6 +465,8 @@
     <ClInclude Include="Dependencies\glm\glm\vec3.hpp" />
     <ClInclude Include="Dependencies\glm\glm\vec4.hpp" />
     <ClInclude Include="Dependencies\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="Dependencies\OpenFBX\miniz.h" />
+    <ClInclude Include="Dependencies\OpenFBX\ofbx.h" />
     <ClInclude Include="include\Application.h" />
     <ClInclude Include="include\Core\Core.h" />
     <ClInclude Include="include\Core\Debug.h" />
