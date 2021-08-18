@@ -72,19 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <PublicIncludeDirectories>C:\Project\C++\Trigon\Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <PublicIncludeDirectories>C:\Project\C++\Trigon\Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <PublicIncludeDirectories>C:\Project\C++\Trigon\Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <PublicIncludeDirectories>C:\Project\C++\Trigon\Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -448,6 +448,16 @@
     <ClInclude Include="Dependencies\glm\glm\mat4x4.hpp" />
     <ClInclude Include="Dependencies\glm\glm\matrix.hpp" />
     <ClInclude Include="Dependencies\glm\glm\packing.hpp" />
+    <ClInclude Include="Dependencies\glm\glm\simd\common.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\exponential.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\geometric.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\integer.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\matrix.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\neon.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\packing.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\platform.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\trigonometric.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\vector_relational.h" />
     <ClInclude Include="Dependencies\glm\glm\trigonometric.hpp" />
     <ClInclude Include="Dependencies\glm\glm\vec2.hpp" />
     <ClInclude Include="Dependencies\glm\glm\vec3.hpp" />

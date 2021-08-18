@@ -292,6 +292,16 @@
     <ClInclude Include="include\Core\Types\Mesh.h" />
     <ClInclude Include="include\Engine\Managers\ModelManager.h" />
     <ClInclude Include="include\Core\Types\Model.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\common.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\exponential.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\geometric.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\integer.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\matrix.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\neon.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\packing.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\platform.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\trigonometric.h" />
+    <ClInclude Include="Dependencies\glm\glm\simd\vector_relational.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MainEntry.cpp" />
