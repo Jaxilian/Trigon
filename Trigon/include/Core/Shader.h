@@ -1,31 +1,65 @@
 #ifndef SHADER_H
 #define SHADER_H
+#include <vector>
+#include "Math/Matrix4.h"
+#include "Math/Vector3.h"
 
 class Renderer;
+
+struct UniformFloat
+{
+	unsigned int	location;
+	const char*		name;
+	float			value;
+};
+struct UniformInt
+{
+	unsigned int	location;
+	const char*		name;
+	int				value;
+};
+struct UniformV3f
+{
+	unsigned int	location;
+	const char*		name;
+	Vector3			value;
+};
+struct UniformMat4f
+{
+	unsigned int	location;
+	const char*		name;
+	Matrix4			value;
+};
 
 class Shader
 {
 	friend Renderer;
-public:
+private:
 	unsigned int programID;
+	unsigned int LoadGLSLShaders(const char* vertex_file_path, const char* fragment_file_path);
 
-	virtual void OnDraw(unsigned int vertexBuffer);
-};
+	std::vector<UniformFloat>	uniformFloats;
+	std::vector<UniformInt>		uniformInts;
+	std::vector<UniformMat4f>	uniformMat4fs;
 
-class ShaderVertex : public Shader
-{
-private:
-public:
-	void OnDraw(unsigned int vertexBuffer) override;
-};
-
-class ShaderUnlitTextured : public Shader
-{
-private:
 
 public:
-	void OnDraw(unsigned int vertexBuffer) override;
+
+	Shader(const char* vertex_file_path, const char* fragment_file_path);
+
+	void
+	AddUniformFloat(UniformFloat& uniFloat);
+
+	void
+	SetUniformFloat(const char* name, float value);
+
+	void
+	AddUniformMat4f(UniformMat4f& uniFloat);
+
+	void
+	SetUniformMat4f(const char* name, Matrix4 value);
 
 };
+
 
 #endif // !SHADER_H

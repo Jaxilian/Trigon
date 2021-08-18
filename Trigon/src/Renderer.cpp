@@ -98,7 +98,7 @@ Renderer::DrawVertices(unsigned int vertexBuffer)
 		#endif
 		return;
 	}
-	currentShader->OnDraw(vertexBuffer);
+	//currentShader->OnDraw(vertexBuffer);
 }
 
 void

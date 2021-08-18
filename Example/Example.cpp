@@ -1,10 +1,15 @@
 #include "Example.h"
-
+#include "Core/Shader.h"
 
 void
 Example::OnInit()
 {
+    Shader shader("Example", "Example");
+
+    shader.SetUniformFloat("Color", 10.0f);
+
     Application::OnInit();
+ 
 }
 
 

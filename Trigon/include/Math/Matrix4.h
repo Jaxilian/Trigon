@@ -10,6 +10,14 @@ private:
 
 public:
 
+	Matrix4& operator = (const Matrix4& rhs)
+	{
+		data = rhs.data;
+		return *this;
+	};
+
+
+	
 };
 
 #endif // !MATRIX4_H
