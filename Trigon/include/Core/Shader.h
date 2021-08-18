@@ -8,25 +8,25 @@ class Renderer;
 
 struct UniformFloat
 {
-	unsigned int	location;
+	unsigned int	location = -1;
 	const char*		name;
 	float			value;
 };
 struct UniformInt
 {
-	unsigned int	location;
+	unsigned int	location = -1;
 	const char*		name;
 	int				value;
 };
 struct UniformV3f
 {
-	unsigned int	location;
+	unsigned int	location = -1;
 	const char*		name;
 	Vector3			value;
 };
 struct UniformMat4f
 {
-	unsigned int	location;
+	unsigned int	location = -1;
 	const char*		name;
 	Matrix4			value;
 };
@@ -36,6 +36,7 @@ class Shader
 	friend Renderer;
 private:
 	unsigned int programID;
+	unsigned int mvpLocation;
 	unsigned int LoadGLSLShaders(const char* vertex_file_path, const char* fragment_file_path);
 
 	std::vector<UniformFloat>	uniformFloats;
@@ -54,7 +55,7 @@ public:
 	SetUniformFloat(const char* name, float value);
 
 	void
-	AddUniformMat4f(UniformMat4f& uniFloat);
+	AddUniformMat4f(UniformMat4f& uniMatFloat);
 
 	void
 	SetUniformMat4f(const char* name, Matrix4 value);

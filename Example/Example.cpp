@@ -1,14 +1,47 @@
 #include "Example.h"
-#include "Core/Shader.h"
+#include "Core/Renderer.h"
+#include "Engine/Managers/ModelManager.h"
+#include "Math/Matrix4.h"
+#include "Core/Camera.h"
+#include "Core/WindowManager.h"
+
+Shader*     shader;
+Model*      model;
+Mesh*       mesh;
+Material*   material;
+Matrix4*    modelMatrix;
+Camera*     camera;
+
+std::vector<float> vertices
+{
+    -1.0f, -1.0f, 0.0f,
+    1.0f, -1.0f, 0.0f,
+    0.0f, 1.0f, 0.0f
+};
 
 void
 Example::OnInit()
 {
-    Shader shader("Example", "Example");
-
-    shader.SetUniformFloat("Color", 10.0f);
-
     Application::OnInit();
+    shader      = new Shader("shaders/vertex.glsl", "shaders/fragment.glsl");
+
+
+    camera = new Camera();
+;
+    camera->projection.SetProjection(45.0f, (float)WindowManager::GetInstance()->width, (float)WindowManager::GetInstance()->height, 0.1f, 100.0f);
+    camera->transform.Translate(Vector3(4, 3, 3));
+    camera->transform.LookAt(Vector3(0, 0, 0), Vector3(0, 1, 0));
+
+
+    material    = new Material(shader);
+    mesh        = new Mesh();
+
+    mesh->SetVertices(vertices);
+
+    modelMatrix = new Matrix4();
+
+    model = ModelManager::CreateModel(mesh, material);
+
  
 }
 
@@ -39,6 +72,7 @@ Example::OnUpdate()
 {
 
     Application::OnUpdate();
+    Renderer::DrawModel(model, modelMatrix);
 
 }
 

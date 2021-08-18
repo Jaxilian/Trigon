@@ -2,6 +2,7 @@
 #include "Core/WindowManager.h"
 #include <sstream>
 #include <fstream>
+#include "Core/Camera.h"
 
 Shader* Renderer::currentShader = nullptr;
 
@@ -80,31 +81,54 @@ Renderer::UnbindBuffer(const unsigned int buffer)
 	glDeleteBuffers(1, &buffer);
 }
 
-void
-Renderer::SetShader(Shader* shader)
+void			
+Renderer::DrawModel(const Model* model, const Matrix4* transform) 
 {
-	if (currentShader == nullptr) currentShader = shader;
+	glUseProgram(model->material->shader->programID);
 
-	glUseProgram(shader->programID);
-}
+	std::vector<UniformMat4f>* uniMats = &model->material->shader->uniformMat4fs;
 
-void
-Renderer::DrawVertices(unsigned int vertexBuffer)
-{
-	if (currentShader == nullptr)
+	Camera* cam = Camera::currentCamera;
+	glm::mat4 mvp = cam->projection.data * cam->transform.data * transform->data;
+
+	glUniformMatrix4fv(model->material->shader->mvpLocation, 1, GL_FALSE, &mvp[0][0]);
+
+
+	for (int i = 0; i < uniMats->size(); i++)
 	{
-		#ifdef _DEBUG
-		Debug::LogError("No shader assign! Can't render...");
-		#endif
-		return;
+		glUniformMatrix4fv(uniMats->at(i).location, 1, GL_FALSE, &uniMats->at(i).value.data[0][0]);
 	}
-	//currentShader->OnDraw(vertexBuffer);
+
+	glEnableVertexAttribArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, model->mesh->bufferLocation);
+	glVertexAttribPointer(
+		0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
+		3,                  // size
+		GL_FLOAT,           // type
+		GL_FALSE,           // normalized?
+		0,                  // stride
+		(void*)0            // array buffer offset
+	);
+	// Draw the triangle !
+	glDrawArrays(GL_TRIANGLES, 0, 3); // Starting from vertex 0; 3 vertices total -> 1 triangle
+	glDisableVertexAttribArray(0);
+
+	if (glGetError() != GL_NO_ERROR) 
+	{
+		printf("%s\n", glGetError());
+	}
+}
+
+unsigned int 
+Renderer::GetUniformLocation(unsigned int programID, const char* name) 
+{
+	return glGetUniformLocation(programID, name);
 }
 
 void
-Renderer::GetInstance()
+Renderer::Clear()
 {
-
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void
@@ -113,116 +137,3 @@ Renderer::ReleaseInstance()
 	glDeleteVertexArrays(0, &vertexArrayID);
 }
 
-GLuint
-Renderer::LoadGLSLShaders(const char* vertex_file_path, const char* fragment_file_path)
-{
-
-	// Create the shaders
-	GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
-	GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
-
-	// Read the Vertex Shader code from the file
-	std::string VertexShaderCode;
-	std::ifstream VertexShaderStream(vertex_file_path, std::ios::in);
-	if (VertexShaderStream.is_open()) {
-		std::stringstream sstr;
-		sstr << VertexShaderStream.rdbuf();
-		VertexShaderCode = sstr.str();
-		VertexShaderStream.close();
-	}
-	else
-	{
-#ifdef _DEBUG
-		Debug::LogError("Impossible to open %s. Are you in the right directory ?\n", vertex_file_path);
-#endif // _DEBUG
-		return 0;
-
-	}
-
-	// Read the Fragment Shader code from the file
-	std::string FragmentShaderCode;
-	std::ifstream FragmentShaderStream(fragment_file_path, std::ios::in);
-	if (FragmentShaderStream.is_open()) {
-		std::stringstream sstr;
-		sstr << FragmentShaderStream.rdbuf();
-		FragmentShaderCode = sstr.str();
-		FragmentShaderStream.close();
-	}
-	else
-	{
-#ifdef _DEBUG
-		Debug::LogError("Impossible to open %s. Are you in the right directory ?\n", fragment_file_path);
-#endif
-		return 0;
-	}
-
-	GLint Result = GL_FALSE;
-	int InfoLogLength;
-
-	// Compile Vertex Shader
-	char const* VertexSourcePointer = VertexShaderCode.c_str();
-	glShaderSource(VertexShaderID, 1, &VertexSourcePointer, NULL);
-	glCompileShader(VertexShaderID);
-
-	// Check Vertex Shader
-	glGetShaderiv(VertexShaderID, GL_COMPILE_STATUS, &Result);
-	glGetShaderiv(VertexShaderID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-	if (InfoLogLength > 0) {
-		std::vector<char> VertexShaderErrorMessage(InfoLogLength + 1);
-		glGetShaderInfoLog(VertexShaderID, InfoLogLength, NULL, &VertexShaderErrorMessage[0]);
-#ifdef _DEBUG
-		Debug::LogError("%s\n", &VertexShaderErrorMessage[0]);
-#endif // _DEBUG
-
-	}
-#ifdef _DEBUG
-	Debug::LogStatus(DebugColor::Green, DebugType::Compile, DebugResult::Success, "Vertex Shader");
-#endif // _DEBUG
-	// Compile Fragment Shader
-	char const* FragmentSourcePointer = FragmentShaderCode.c_str();
-	glShaderSource(FragmentShaderID, 1, &FragmentSourcePointer, NULL);
-	glCompileShader(FragmentShaderID);
-
-	// Check Fragment Shader
-	glGetShaderiv(FragmentShaderID, GL_COMPILE_STATUS, &Result);
-	glGetShaderiv(FragmentShaderID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-	if (InfoLogLength > 0) {
-		std::vector<char> FragmentShaderErrorMessage(InfoLogLength + 1);
-		glGetShaderInfoLog(FragmentShaderID, InfoLogLength, NULL, &FragmentShaderErrorMessage[0]);
-#ifdef _DEBUG
-		Debug::LogError("%s\n", &FragmentShaderErrorMessage[0]);
-#endif // _DEBUG
-	}
-#ifdef _DEBUG
-	Debug::LogStatus(DebugColor::Green, DebugType::Compile, DebugResult::Success, "Fragment Shader");
-#endif // _DEBUG
-
-	// Link the program
-	GLuint ProgramID = glCreateProgram();
-	glAttachShader(ProgramID, VertexShaderID);
-	glAttachShader(ProgramID, FragmentShaderID);
-	glLinkProgram(ProgramID);
-
-	// Check the program
-	glGetProgramiv(ProgramID, GL_LINK_STATUS, &Result);
-	glGetProgramiv(ProgramID, GL_INFO_LOG_LENGTH, &InfoLogLength);
-	if (InfoLogLength > 0) {
-		std::vector<char> ProgramErrorMessage(InfoLogLength + 1);
-		glGetProgramInfoLog(ProgramID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
-#ifdef _DEBUG
-		Debug::LogStatus(DebugColor::Red, DebugType::Compile, DebugResult::Failed, "Program");
-		Debug::LogError("%s\n", &ProgramErrorMessage[0]);
-#endif
-	}
-#ifdef _DEBUG
-	Debug::LogStatus(DebugColor::Green, DebugType::Compile, DebugResult::Success, "Program");
-#endif
-
-	glDetachShader(ProgramID, VertexShaderID);
-	glDetachShader(ProgramID, FragmentShaderID);
-
-	glDeleteShader(VertexShaderID);
-	glDeleteShader(FragmentShaderID);
-
-	return ProgramID;
-}

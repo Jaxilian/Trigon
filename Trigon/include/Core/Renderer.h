@@ -4,6 +4,7 @@
 #include "core/Core.h"
 #include "Shader.h"
 #include <vector>
+#include "Types/Model.h"
 
 class Renderer
 {
@@ -16,11 +17,10 @@ public:
 	static void			CreateInstance();
 	static unsigned int BindBuffer(const std::vector<float> buffer);
 	static void			UnbindBuffer(const unsigned int buffer);
-	static void			DrawVertices(unsigned int vertexBuffer);
-	static void			SetShader(Shader* shader);
-	static void			GetInstance();
+	static void			Clear();
+	static void			DrawModel(const Model* model, const Matrix4* transform);
+	static unsigned int GetUniformLocation(unsigned int programID, const char* name);
 	static void			ReleaseInstance();
-	static GLuint		LoadGLSLShaders(const char* vertexPath, const char* fragmentPath);
 };
 #endif // !RENDERER_H
 

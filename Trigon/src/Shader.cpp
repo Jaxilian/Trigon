@@ -2,15 +2,18 @@
 #include "Core/Core.h"
 #include <sstream>
 #include <fstream>
+#include "Core/Renderer.h"
 
 Shader::Shader(const char* vertex_file_path, const char* fragment_file_path)
 {
-	programID = LoadGLSLShaders(vertex_file_path, fragment_file_path);
+	programID	= LoadGLSLShaders(vertex_file_path, fragment_file_path);
+	mvpLocation = glGetUniformLocation(programID, "MVP");
 }
 
 void
 Shader::AddUniformFloat(UniformFloat& uniFloat)
 {
+	uniFloat.location = Renderer::GetUniformLocation(programID, uniFloat.name);
 	uniformFloats.push_back(uniFloat);
 }
 
@@ -142,9 +145,10 @@ Shader::LoadGLSLShaders(const char* vertex_file_path, const char* fragment_file_
 }
 
 void
-Shader::AddUniformMat4f(UniformMat4f& uniFloat)
+Shader::AddUniformMat4f(UniformMat4f& uniMatFloat)
 {
-	uniformMat4fs.push_back(uniFloat);
+	uniMatFloat.location = Renderer::GetUniformLocation(programID, uniMatFloat.name);
+	uniformMat4fs.push_back(uniMatFloat);
 }
 
 void

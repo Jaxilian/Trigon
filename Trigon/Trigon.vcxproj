@@ -466,10 +466,12 @@
     <ClInclude Include="Dependencies\OpenFBX\miniz.h" />
     <ClInclude Include="Dependencies\OpenFBX\ofbx.h" />
     <ClInclude Include="include\Application.h" />
+    <ClInclude Include="include\Core\Camera.h" />
     <ClInclude Include="include\Core\Core.h" />
     <ClInclude Include="include\Core\Debug.h" />
     <ClInclude Include="include\Core\Renderer.h" />
     <ClInclude Include="include\Core\Shader.h" />
+    <ClInclude Include="include\Core\Types\Material.h" />
     <ClInclude Include="include\Core\Types\Mesh.h" />
     <ClInclude Include="include\Core\Types\Model.h" />
     <ClInclude Include="include\Core\WindowManager.h" />
@@ -483,7 +485,9 @@
     <ClCompile Include="Dependencies\OpenFBX\miniz.c" />
     <ClCompile Include="Dependencies\OpenFBX\ofbx.cpp" />
     <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\MainEntry.cpp" />
+    <ClCompile Include="src\Material.cpp" />
     <ClCompile Include="src\Matrix4.cpp" />
     <ClCompile Include="src\Mesh.cpp" />
     <ClCompile Include="src\Model.cpp" />

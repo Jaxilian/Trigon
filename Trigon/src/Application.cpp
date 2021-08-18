@@ -36,6 +36,7 @@ Application::OnStart()
 void
 Application::OnEarlyUpdate()
 {
+	Renderer::Clear();
 }
 
 void
