@@ -18,10 +18,7 @@ void
 Example::OnStart()
 {
     Application::OnStart();
-    //CreateScene
-    //SetSceneActive
-    //CreateEntity->AddComponent<Terrain>().Generate(terrainData)
-    //Create
+
 
 }
 

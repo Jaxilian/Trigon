@@ -12,6 +12,7 @@ Application::BaseSetup()
 {
 	WindowManager::CreateInstance();
 	Renderer::CreateInstance();
+
 }
 
 void
