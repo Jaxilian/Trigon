@@ -6,8 +6,8 @@
 class Model
 {
 public:
-	Material*	material;
-	Mesh*		mesh;
+	Material*			material;
+	std::vector<Mesh*>	meshes;
 
 	Model() {};
 };

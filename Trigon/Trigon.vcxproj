@@ -72,19 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -94,7 +94,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -104,7 +104,7 @@
       <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Trigon\Dependencies\glm\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\lib-vc2019;$(SolutionDir)Trigon\Dependencies\glad\src;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\lib-vc2019;$(SolutionDir)Trigon\Dependencies\glad\src;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -115,7 +115,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +127,7 @@
       <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Trigon\Dependencies\glm\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\lib-vc2019;$(SolutionDir)Trigon\Dependencies\glad\src;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\lib-vc2019;$(SolutionDir)Trigon\Dependencies\glad\src;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -138,7 +138,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,7 +148,7 @@
       <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Trigon\Dependencies\glm\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\lib-vc2019;$(SolutionDir)Trigon\Dependencies\glad\src;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\lib-vc2019;$(SolutionDir)Trigon\Dependencies\glad\src;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -159,7 +159,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -171,7 +171,7 @@
       <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Trigon\Dependencies\glm\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\lib-vc2019;$(SolutionDir)Trigon\Dependencies\glad\src;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\lib-vc2019;$(SolutionDir)Trigon\Dependencies\glad\src;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>

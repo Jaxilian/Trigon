@@ -99,24 +99,28 @@ Renderer::DrawModel(const Model* model, const Matrix4* transform)
 		glUniformMatrix4fv(uniMats->at(i).location, 1, GL_FALSE, &uniMats->at(i).value.data[0][0]);
 	}
 
-	glEnableVertexAttribArray(0);
-	glBindBuffer(GL_ARRAY_BUFFER, model->mesh->bufferLocation);
-	glVertexAttribPointer(
-		0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
-		3,                  // size
-		GL_FLOAT,           // type
-		GL_FALSE,           // normalized?
-		0,                  // stride
-		(void*)0            // array buffer offset
-	);
-	// Draw the triangle !
-	glDrawArrays(GL_TRIANGLES, 0, 3); // Starting from vertex 0; 3 vertices total -> 1 triangle
-	glDisableVertexAttribArray(0);
-
-	if (glGetError() != GL_NO_ERROR) 
+	for (int i = 0; i < model->meshes.size(); i++) 
 	{
-		printf("%s\n", glGetError());
+		glEnableVertexAttribArray(0);
+		glBindBuffer(GL_ARRAY_BUFFER, model->meshes.at(i)->bufferLocation);
+		glVertexAttribPointer(
+			0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
+			3,                  // size
+			GL_FLOAT,           // type
+			GL_FALSE,           // normalized?
+			0,                  // stride
+			(void*)0            // array buffer offset
+		);
+		// Draw the triangle !
+		glDrawArrays(GL_TRIANGLES, 0, 12 * 3); // Starting from vertex 0; 3 vertices total -> 1 triangle
+		glDisableVertexAttribArray(0);
+
+		if (glGetError() != GL_NO_ERROR) 
+		{
+			printf("%s\n", glGetError());
+		}
 	}
+
 }
 
 unsigned int 

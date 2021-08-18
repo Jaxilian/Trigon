@@ -4,10 +4,12 @@
 
 class ModelManager
 {
+private:
+
 public:
 	static Model* CreateModel(Mesh* mesh);
 	static Model* CreateModel(Mesh* mesh, Material* material);
-
+	static Model* LoadModel(const char* path);
 };
 
 #endif

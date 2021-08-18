@@ -12,19 +12,13 @@ Material*   material;
 Matrix4*    modelMatrix;
 Camera*     camera;
 
-std::vector<float> vertices
-{
-    -1.0f, -1.0f, 0.0f,
-    1.0f, -1.0f, 0.0f,
-    0.0f, 1.0f, 0.0f
-};
+
 
 void
 Example::OnInit()
 {
     Application::OnInit();
     shader      = new Shader("shaders/vertex.glsl", "shaders/fragment.glsl");
-
 
     camera = new Camera();
 ;
@@ -34,13 +28,12 @@ Example::OnInit()
 
 
     material    = new Material(shader);
-    mesh        = new Mesh();
 
-    mesh->SetVertices(vertices);
 
     modelMatrix = new Matrix4();
 
-    model = ModelManager::CreateModel(mesh, material);
+    model = ModelManager::LoadModel("assets/untitled.fbx");
+    model->material = material;
 
  
 }
