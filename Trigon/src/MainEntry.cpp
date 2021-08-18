@@ -1,6 +1,5 @@
 #include "Application.h"
-
-extern Application* CreateApplication();
+extern Application * CreateApplication();
 
 
 int main()
