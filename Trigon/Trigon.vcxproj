@@ -460,7 +460,9 @@
     <ClInclude Include="include\Core\Debug.h" />
     <ClInclude Include="include\Core\Renderer.h" />
     <ClInclude Include="include\Core\Shader.h" />
+    <ClInclude Include="include\Core\Types\Mesh.h" />
     <ClInclude Include="include\Core\WindowManager.h" />
+    <ClInclude Include="include\Engine\Managers\ModelManager.h" />
     <ClInclude Include="include\Math\Matrix4.h" />
     <ClInclude Include="include\Math\Vector3.h" />
   </ItemGroup>
@@ -472,6 +474,8 @@
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\MainEntry.cpp" />
     <ClCompile Include="src\Matrix4.cpp" />
+    <ClCompile Include="src\Mesh.cpp" />
+    <ClCompile Include="src\ModelManager.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\Vector3.cpp" />

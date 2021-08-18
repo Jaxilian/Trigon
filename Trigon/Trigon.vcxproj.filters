@@ -289,6 +289,8 @@
     <ClInclude Include="Dependencies\OpenFBX\ofbx.h" />
     <ClInclude Include="include\Math\Matrix4.h" />
     <ClInclude Include="include\Math\Vector3.h" />
+    <ClInclude Include="include\Core\Types\Mesh.h" />
+    <ClInclude Include="include\Engine\Managers\ModelManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MainEntry.cpp" />
@@ -302,6 +304,8 @@
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\Vector3.cpp" />
     <ClCompile Include="src\WindowManager.cpp" />
+    <ClCompile Include="src\Mesh.cpp" />
+    <ClCompile Include="src\ModelManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\glm\glm\detail\func_common.inl" />
