@@ -131,6 +131,8 @@ Renderer::DrawModel(const Model* model, const Matrix4* transform)
 
 	std::vector<UniformTex2D>* textures = &model->material->shader->uniformTex2Ds;
 	
+	//////////////////////////////////////////////////
+	// Pass all textures to shader
 	if (textures->size() > 0) 
 	{
 		if (textures->size() > 2) Debug::LogError("Renderer is not completed! Can only render two textures");

@@ -308,9 +308,15 @@
     <ClInclude Include="include\Core\Types\Texture2D.h" />
     <ClInclude Include="include\Engine\Managers\TextureManager.h" />
     <ClInclude Include="include\Editor\EditorGUI.h" />
-    <ClInclude Include="Dependencies\imgui\imgui.h" />
-    <ClInclude Include="Dependencies\imgui\backends\imgui_impl_opengl3.h" />
-    <ClInclude Include="Dependencies\imgui\backends\imgui_impl_glfw.h" />
+    <ClInclude Include="include\Editor\imgui_single_file.h" />
+    <ClInclude Include="include\Editor\imgui.h" />
+    <ClInclude Include="include\Editor\imconfig.h" />
+    <ClInclude Include="include\Editor\imgui_internal.h" />
+    <ClInclude Include="include\Editor\imstb_rectpack.h" />
+    <ClInclude Include="include\Editor\imstb_textedit.h" />
+    <ClInclude Include="include\Editor\imstb_truetype.h" />
+    <ClInclude Include="include\Editor\imgui_impl_glfw.h" />
+    <ClInclude Include="include\Editor\imgui_impl_opengl3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MainEntry.cpp" />
@@ -332,9 +338,13 @@
     <ClCompile Include="src\Texture2D.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
     <ClCompile Include="src\EditorGUI.cpp" />
-    <ClCompile Include="Dependencies\imgui\imgui.cpp" />
-    <ClCompile Include="Dependencies\imgui\backends\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="Dependencies\imgui\backends\imgui_impl_glfw.cpp" />
+    <ClCompile Include="include\Editor\imgui_widgets.cpp" />
+    <ClCompile Include="include\Editor\imgui.cpp" />
+    <ClCompile Include="include\Editor\imgui_demo.cpp" />
+    <ClCompile Include="include\Editor\imgui_draw.cpp" />
+    <ClCompile Include="include\Editor\imgui_tables.cpp" />
+    <ClCompile Include="include\Editor\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="include\Editor\imgui_impl_glfw.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\glm\glm\detail\func_common.inl" />

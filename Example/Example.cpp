@@ -13,6 +13,7 @@ Mesh*       mesh;
 Material*   material;
 Matrix4*    modelMatrix;
 Matrix4*    modelMatrix2;
+Matrix4*    directionalLightMat;
 Camera*     camera;
 Texture2D*  texture;
 
@@ -30,6 +31,9 @@ Example::OnInit()
     UniformTex2D uniTex2D;
     uniTex2D.name   = "textureSampler";
     uniTex2D.value  =  texture;
+
+    UniformMat4f directionLight;
+    directionLight.name = ""
 
     texShader->AddUniformTex2D(uniTex2D);
 
