@@ -1,6 +1,7 @@
 #include "Application.h"
 #include "core/WindowManager.h"
 #include "Core/Renderer.h"
+#include "Editor/EditorGUI.h"
 
 Application::Application()
 {
@@ -12,6 +13,7 @@ Application::BaseSetup()
 {
 	WindowManager::CreateInstance();
 	Renderer::CreateInstance();
+	EditorGUI::instance = new EditorGUI();
 }
 
 void
@@ -56,6 +58,7 @@ Application::OnLateUpdate()
 void
 Application::OnQuit()
 {
+	delete EditorGUI::instance;
 	WindowManager::ReleaseInstance();
 	Renderer::ReleaseInstance();
 }

@@ -307,6 +307,10 @@
     <ClInclude Include="Dependencies\Headers\stb_image.h" />
     <ClInclude Include="include\Core\Types\Texture2D.h" />
     <ClInclude Include="include\Engine\Managers\TextureManager.h" />
+    <ClInclude Include="include\Editor\EditorGUI.h" />
+    <ClInclude Include="Dependencies\imgui\imgui.h" />
+    <ClInclude Include="Dependencies\imgui\backends\imgui_impl_opengl3.h" />
+    <ClInclude Include="Dependencies\imgui\backends\imgui_impl_glfw.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MainEntry.cpp" />
@@ -327,6 +331,10 @@
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Texture2D.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
+    <ClCompile Include="src\EditorGUI.cpp" />
+    <ClCompile Include="Dependencies\imgui\imgui.cpp" />
+    <ClCompile Include="Dependencies\imgui\backends\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="Dependencies\imgui\backends\imgui_impl_glfw.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\glm\glm\detail\func_common.inl" />
