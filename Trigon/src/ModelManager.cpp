@@ -119,6 +119,38 @@ ModelManager::LoadModel(const char* path)
 
 }
 
+void 
+ModelManager::DestroyModel(Model* model)
+{
+	if(model)delete model;
+}
+
+void 
+ModelManager::DestroyModelChain(Model* model) 
+{
+	if (!model)return;
+	for (int i = 0; i < model->meshes.size(); i++) 
+	{
+		Renderer::UnbindBuffer(model->meshes.at(i)->indexBufferLocation);
+		Renderer::UnbindBuffer(model->meshes.at(i)->vertexBufferLocation);
+		Renderer::UnbindBuffer(model->meshes.at(i)->uvBufferLocation);
+		Renderer::UnbindBuffer(model->meshes.at(i)->normalBufferLocation);
+		delete model->meshes.at(i);
+	}
+	
+	if (model->material) delete model->material;
+}
+
+void		
+ModelManager::DestroyMesh(Mesh* mesh)
+{
+	Renderer::UnbindBuffer(mesh->indexBufferLocation);
+	Renderer::UnbindBuffer(mesh->vertexBufferLocation);
+	Renderer::UnbindBuffer(mesh->uvBufferLocation);
+	Renderer::UnbindBuffer(mesh->normalBufferLocation);
+	delete mesh;
+}
+
 
 
 bool is_near(float v1, float v2) {

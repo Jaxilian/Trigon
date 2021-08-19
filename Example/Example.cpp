@@ -5,6 +5,7 @@
 #include "Core/Camera.h"
 #include "Core/WindowManager.h"
 #include "Engine/Managers/TextureManager.h"
+#include "Core/Input.h"
 
 Shader*     shader;
 Shader*     texShader;
@@ -32,14 +33,20 @@ Example::OnInit()
     uniTex2D.name   = "textureSampler";
     uniTex2D.value  =  texture;
 
+    directionalLightMat = new Matrix4();
+
     UniformMat4f directionLight;
-    directionLight.name = ""
+    directionLight.name     = "directionLight";
+    directionLight.value    = directionalLightMat;
 
     texShader->AddUniformTex2D(uniTex2D);
+    texShader->AddUniformMat4f(directionLight);
 
     camera = new Camera(45.0f, 0.1f, 100.0f);
-    camera->transform.Translate(Vector3(4, 3, 3));
-    camera->transform.LookAt(Vector3(0, 0, 0), Vector3(0, 1, 0));
+    camera->transform.SetPosition(Vector3(0, 0, 1));
+    camera->transform.scale = Vector3(1, 1, 1);
+    camera->transform.ApplyChanges();
+    //camera->transform.LookAt(Vector3(0, 0, 0), Vector3(0, 1, 0));
 
 
     material    = new Material(texShader);
@@ -87,6 +94,14 @@ Example::OnEarlyUpdate()
 void
 Example::OnUpdate()
 {
+    if (Input::GetKey(KeyCode::W)) modelMatrix->Translate(modelMatrix->forward * 0.001f);
+    if (Input::GetKey(KeyCode::S)) modelMatrix->Translate(modelMatrix->forward * -0.001f);
+    if (Input::GetKey(KeyCode::E)) modelMatrix->Rotate(Vector3(0.002f, 0, 0));
+    if (Input::GetKey(KeyCode::Q)) modelMatrix->Rotate(Vector3(-0.002f, 0, 0));
+
+    if (Input::GetKey(KeyCode::SPACE)) {
+        camera->transform.Translate(camera->transform.forward * 0.002f);
+    }
 
     Application::OnUpdate();
     Renderer::DrawModel(model, modelMatrix);
@@ -104,5 +119,18 @@ Example::OnLateUpdate()
 void
 Example::OnQuit()
 {
+    Renderer::UnbindShader(shader);
+    Renderer::UnbindShader(texShader);
+    delete shader;
+    delete texShader;
+
+    ModelManager::DestroyModelChain(model);
+
+    delete modelMatrix;
+    delete modelMatrix2;
+    delete directionalLightMat;
+    delete camera;
+    Renderer::UnbindTexture2D(texture);
+    delete texture;
     Application::OnQuit();
 }

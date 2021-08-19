@@ -86,6 +86,12 @@ Renderer::BindTexture2D(Texture2D* texture)
 }
 
 void
+Renderer::UnbindTexture2D(Texture2D* texture)
+{
+	glDeleteTextures(0, &texture->location);
+}
+
+void
 Renderer::UnbindBuffer(const unsigned int buffer)
 {
 	glDeleteBuffers(1, &buffer);
@@ -124,7 +130,7 @@ Renderer::DrawModel(const Model* model, const Matrix4* transform)
 
 	for (int i = 0; i < uniMats->size(); i++)
 	{
-		glUniformMatrix4fv(uniMats->at(i).location, 1, GL_FALSE, &uniMats->at(i).value.data[0][0]);
+		glUniformMatrix4fv(uniMats->at(i).location, 1, GL_FALSE, &uniMats->at(i).value->data[0][0]);
 	}
 
 	// Assign all textures to shader
@@ -240,3 +246,8 @@ Renderer::ReleaseInstance()
 	glDeleteVertexArrays(0, &vertexArrayID);
 }
 
+void			
+Renderer::UnbindShader(Shader* shader) 
+{
+	glDeleteProgram(shader->programID);
+}

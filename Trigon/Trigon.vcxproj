@@ -470,6 +470,7 @@
     <ClInclude Include="include\Core\Camera.h" />
     <ClInclude Include="include\Core\Core.h" />
     <ClInclude Include="include\Core\Debug.h" />
+    <ClInclude Include="include\Core\Input.h" />
     <ClInclude Include="include\Core\Renderer.h" />
     <ClInclude Include="include\Core\Shader.h" />
     <ClInclude Include="include\Core\Types\Material.h" />
@@ -490,6 +491,7 @@
     <ClInclude Include="include\Engine\Managers\ModelManager.h" />
     <ClInclude Include="include\Engine\Managers\TextureManager.h" />
     <ClInclude Include="include\Math\Matrix4.h" />
+    <ClInclude Include="include\Math\Vector2.h" />
     <ClInclude Include="include\Math\Vector3.h" />
   </ItemGroup>
   <ItemGroup>
@@ -507,6 +509,7 @@
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\EditorGUI.cpp" />
+    <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\MainEntry.cpp" />
     <ClCompile Include="src\Material.cpp" />
     <ClCompile Include="src\Matrix4.cpp" />
@@ -517,6 +520,7 @@
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\Texture2D.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
+    <ClCompile Include="src\Vector2.cpp" />
     <ClCompile Include="src\Vector3.cpp" />
     <ClCompile Include="src\WindowManager.cpp" />
   </ItemGroup>

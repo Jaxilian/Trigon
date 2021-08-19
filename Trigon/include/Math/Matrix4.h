@@ -17,6 +17,9 @@ public:
 	Vector3 position;
 	Vector3 rotation;
 	Vector3 scale;
+	Vector3 forward;
+	Vector3 up;
+	Vector3 right;
 
 	Matrix4& operator = (const Matrix4& rhs)
 	{
@@ -35,10 +38,13 @@ public:
 	Matrix4& Translate		(const Vector3& rhs);
 	Matrix4& LookAt			(const Vector3& target, const Vector3& up);
 	Matrix4& SetProjection	(float radians, float width, float height, float near, float far);
+	Matrix4& Rotate			(const Vector3& inRotation);
 	Matrix4& SetPosition	(const Vector3& position);
 	Matrix4& SetIdentity();
 
 	void ApplyChanges();
+
+	Matrix4();
 
 
 	

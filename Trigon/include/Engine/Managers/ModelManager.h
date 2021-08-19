@@ -34,9 +34,12 @@ private:
 	);
 
 public:
-	static Model* CreateModel(Mesh* mesh);
-	static Model* CreateModel(Mesh* mesh, Material* material);
-	static Model* LoadModel(const char* path);
+	static Model*	CreateModel(Mesh* mesh);
+	static Model*	CreateModel(Mesh* mesh, Material* material);
+	static Model*	LoadModel(const char* path);
+	static void		DestroyModel(Model* model);
+	static void		DestroyModelChain(Model* model);
+	static void		DestroyMesh(Mesh* mesh);
 };
 
 #endif

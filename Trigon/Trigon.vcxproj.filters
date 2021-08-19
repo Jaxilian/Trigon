@@ -317,6 +317,8 @@
     <ClInclude Include="include\Editor\imstb_truetype.h" />
     <ClInclude Include="include\Editor\imgui_impl_glfw.h" />
     <ClInclude Include="include\Editor\imgui_impl_opengl3.h" />
+    <ClInclude Include="include\Core\Input.h" />
+    <ClInclude Include="include\Math\Vector2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MainEntry.cpp" />
@@ -345,6 +347,8 @@
     <ClCompile Include="include\Editor\imgui_tables.cpp" />
     <ClCompile Include="include\Editor\imgui_impl_opengl3.cpp" />
     <ClCompile Include="include\Editor\imgui_impl_glfw.cpp" />
+    <ClCompile Include="src\Input.cpp" />
+    <ClCompile Include="src\Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\glm\glm\detail\func_common.inl" />

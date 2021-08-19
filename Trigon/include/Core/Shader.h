@@ -29,7 +29,7 @@ struct UniformMat4f
 {
 	unsigned int	location = -1;
 	const char*		name;
-	Matrix4			value;
+	Matrix4*		value;
 };
 struct UniformTex2D 
 {
@@ -70,7 +70,7 @@ public:
 	AddUniformMat4f(UniformMat4f& uniMatFloat);
 
 	void
-	SetUniformMat4f(const char* name, Matrix4 value);
+	SetUniformMat4f(const char* name, Matrix4* value);
 
 };
 

@@ -27,6 +27,17 @@ public:
 		return *this;
 	}
 
+	Vector3 operator * (const float& rhs) 
+	{
+		Vector3 vec;
+		vec.data = data * rhs;
+		return vec;
+	}
+	
+	Vector3& Normalize();
+	
+	static Vector3 Cross(const Vector3& lhs, const Vector3& rhs);
+
 	Vector3();
 	Vector3(float x, float y, float z);
 

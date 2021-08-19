@@ -159,7 +159,7 @@ Shader::AddUniformMat4f(UniformMat4f& uniMatFloat)
 }
 
 void
-Shader::SetUniformMat4f(const char* name, Matrix4 value)
+Shader::SetUniformMat4f(const char* name, Matrix4* value)
 {
 	for (int i = 0; i < uniformMat4fs.size(); i++)
 	{
