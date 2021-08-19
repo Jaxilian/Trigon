@@ -7,7 +7,7 @@ Model*
 ModelManager::CreateModel(Mesh* mesh) 
 {
 	int bufferLocation		= Renderer::BindBuffer(mesh->vertexBuffer);
-	mesh->bufferLocation	= bufferLocation;
+	mesh->vertexBufferLocation	= bufferLocation;
 
 	Model* model	=	new Model();
 	model->meshes.push_back(mesh);
@@ -19,7 +19,7 @@ Model*
 ModelManager::CreateModel(Mesh* mesh, Material* material)
 {
 	int bufferLocation = Renderer::BindBuffer(mesh->vertexBuffer);
-	mesh->bufferLocation = bufferLocation;
+	mesh->vertexBufferLocation = bufferLocation;
 
 	Model* model	= new Model();
 	model->meshes.push_back(mesh);
@@ -58,19 +58,25 @@ ModelManager::LoadModel(const char* path)
 		const ofbx::Mesh*			inMesh	 = (const ofbx::Mesh*)scene->getMesh(i);
 		const ofbx::Geometry*		geo		 = inMesh->getGeometry();
 		const ofbx::Vec3*			vertices = geo->getVertices();
+		const ofbx::Vec2*			uvs		 = geo->getUVs();
 
 		for (int vert = 0; vert < geo->getVertexCount(); ++vert)
 		{
-			ofbx::Vec3 v = vertices[vert];
+			ofbx::Vec3 v	= vertices[vert];
+			ofbx::Vec2 uv	= uvs[vert];
 
 			mesh->vertexBuffer.push_back(v.x);
 			mesh->vertexBuffer.push_back(v.y);
 			mesh->vertexBuffer.push_back(v.z);
+
+			mesh->uvs.push_back(uv.x);
+			mesh->uvs.push_back(uv.y);
 		}
 
 
-		int bufferLocation = Renderer::BindBuffer(mesh->vertexBuffer);
-		mesh->bufferLocation = bufferLocation;
+
+		mesh->vertexBufferLocation	=	Renderer::BindBuffer(mesh->vertexBuffer);
+		mesh->uvBufferLocation		=	Renderer::BindBuffer(mesh->uvs);
 		model->meshes.push_back(mesh);
 
 	}

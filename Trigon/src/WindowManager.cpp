@@ -1,5 +1,5 @@
 #include "Core/WindowManager.h"
-
+#include "Core/Camera.h"
 
 WindowPtr* WindowManager::ptr = nullptr;
 bool		WindowManager::initialized = false;
@@ -19,6 +19,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 	WindowManager::GetInstance()->width = width;
 	WindowManager::GetInstance()->height = height;
 	glViewport(0, 0, width, height);
+	if (Camera::currentCamera) Camera::currentCamera->UpdateProjection();
 }
 
 bool

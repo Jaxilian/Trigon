@@ -10,7 +10,10 @@ friend Renderer;
 friend ModelManager;
 private:
 	std::vector<float> vertexBuffer;
-	unsigned int bufferLocation;
+	std::vector<float> uvs;
+
+	unsigned int vertexBufferLocation;
+	unsigned int uvBufferLocation;
 
 public:
 

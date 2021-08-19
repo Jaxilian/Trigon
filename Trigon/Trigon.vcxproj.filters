@@ -304,6 +304,9 @@
     <ClInclude Include="Dependencies\glm\glm\simd\vector_relational.h" />
     <ClInclude Include="include\Core\Types\Material.h" />
     <ClInclude Include="include\Core\Camera.h" />
+    <ClInclude Include="Dependencies\Headers\stb_image.h" />
+    <ClInclude Include="include\Core\Types\Texture2D.h" />
+    <ClInclude Include="include\Engine\Managers\TextureManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MainEntry.cpp" />
@@ -322,6 +325,8 @@
     <ClCompile Include="src\Model.cpp" />
     <ClCompile Include="src\Material.cpp" />
     <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\Texture2D.cpp" />
+    <ClCompile Include="src\TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\glm\glm\detail\func_common.inl" />

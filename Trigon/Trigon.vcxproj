@@ -72,19 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -94,7 +94,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -115,7 +115,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,7 +138,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -159,7 +159,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\Dependencies\Headers;$(SolutionDir)Trigon\Dependencies\OpenFBX;$(SolutionDir)Trigon\Dependencies\glm;$(SolutionDir)Trigon\Dependencies\glfw-3.3.4.bin.WIN64\include;$(SolutionDir)Trigon\Dependencies\glad\include;$(SolutionDir)Trigon\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -463,6 +463,7 @@
     <ClInclude Include="Dependencies\glm\glm\vec3.hpp" />
     <ClInclude Include="Dependencies\glm\glm\vec4.hpp" />
     <ClInclude Include="Dependencies\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="Dependencies\Headers\stb_image.h" />
     <ClInclude Include="Dependencies\OpenFBX\miniz.h" />
     <ClInclude Include="Dependencies\OpenFBX\ofbx.h" />
     <ClInclude Include="include\Application.h" />
@@ -474,8 +475,10 @@
     <ClInclude Include="include\Core\Types\Material.h" />
     <ClInclude Include="include\Core\Types\Mesh.h" />
     <ClInclude Include="include\Core\Types\Model.h" />
+    <ClInclude Include="include\Core\Types\Texture2D.h" />
     <ClInclude Include="include\Core\WindowManager.h" />
     <ClInclude Include="include\Engine\Managers\ModelManager.h" />
+    <ClInclude Include="include\Engine\Managers\TextureManager.h" />
     <ClInclude Include="include\Math\Matrix4.h" />
     <ClInclude Include="include\Math\Vector3.h" />
   </ItemGroup>
@@ -494,6 +497,8 @@
     <ClCompile Include="src\ModelManager.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\Shader.cpp" />
+    <ClCompile Include="src\Texture2D.cpp" />
+    <ClCompile Include="src\TextureManager.cpp" />
     <ClCompile Include="src\Vector3.cpp" />
     <ClCompile Include="src\WindowManager.cpp" />
   </ItemGroup>

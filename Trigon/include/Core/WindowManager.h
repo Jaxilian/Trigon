@@ -18,7 +18,7 @@ private:
 	static bool			initialized;
 
 public:
-	static WindowPtr* GetInstance();
+	static WindowPtr*	GetInstance();
 	static bool			CreateInstance();
 	static bool			ReleaseInstance();
 

@@ -18,6 +18,13 @@ Shader::AddUniformFloat(UniformFloat& uniFloat)
 }
 
 void
+Shader::AddUniformTex2D(UniformTex2D& uniTex2D)
+{
+	uniTex2D.location = Renderer::GetUniformLocation(programID, uniTex2D.name);
+	uniformTex2Ds.push_back(uniTex2D);
+}
+
+void
 Shader::SetUniformFloat(const char* name, float value)
 {
 	for (int i = 0; i < uniformFloats.size(); i++) 

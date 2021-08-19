@@ -17,6 +17,7 @@ public:
 	static void			CreateInstance();
 	static unsigned int BindBuffer(const std::vector<float> buffer);
 	static void			UnbindBuffer(const unsigned int buffer);
+	static unsigned int	BindTexture2D(Texture2D* texture);
 	static void			Clear();
 	static void			DrawModel(const Model* model, const Matrix4* transform);
 	static unsigned int GetUniformLocation(unsigned int programID, const char* name);
