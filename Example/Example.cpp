@@ -52,7 +52,7 @@ Example::OnInit()
     modelMatrix2->SetPosition(Vector3(0, 0, -1));
     modelMatrix2->ApplyChanges();
 
-    model = ModelManager::LoadModel("assets/untitled.fbx");
+    model = ModelManager::LoadModel("assets/Engine.fbx");
     model->material = material;
 
  

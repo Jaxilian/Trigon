@@ -9,11 +9,15 @@ class Mesh
 friend Renderer;
 friend ModelManager;
 private:
-	std::vector<float> vertexBuffer;
-	std::vector<float> uvs;
+	std::vector<float>			vertexBuffer;
+	std::vector<float>			uvBuffer;
+	std::vector<float>			normalBuffer;
+	std::vector<unsigned short>	indexBuffer;
 
 	unsigned int vertexBufferLocation;
 	unsigned int uvBufferLocation;
+	unsigned int normalBufferLocation;
+	unsigned int indexBufferLocation;
 
 public:
 

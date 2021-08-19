@@ -85,16 +85,6 @@ Renderer::BindTexture2D(Texture2D* texture)
 	return textureID;
 }
 
-unsigned int
-Renderer::BindBuffer(const std::vector<float> buffer)
-{
-	GLuint vertexbuffer;
-	glGenBuffers(1, &vertexbuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	glBufferData(GL_ARRAY_BUFFER, buffer.size() * sizeof(float), buffer.data(), GL_STATIC_DRAW);
-	return vertexbuffer;
-}
-
 void
 Renderer::UnbindBuffer(const unsigned int buffer)
 {
@@ -172,6 +162,7 @@ Renderer::DrawModel(const Model* model, const Matrix4* transform)
 
 	for (int i = 0; i < model->meshes.size(); i++) 
 	{
+		// Vertex
 		glEnableVertexAttribArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, model->meshes.at(i)->vertexBufferLocation);
 		glVertexAttribPointer(
@@ -183,7 +174,9 @@ Renderer::DrawModel(const Model* model, const Matrix4* transform)
 			(void*)0            // array buffer offset
 		);
 
-		// 2nd attribute buffer : UVs
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->meshes.at(i)->indexBufferLocation);
+		
+		//  UVs
 		glEnableVertexAttribArray(1);
 		glBindBuffer(GL_ARRAY_BUFFER, model->meshes.at(i)->uvBufferLocation);
 		glVertexAttribPointer(
@@ -195,11 +188,29 @@ Renderer::DrawModel(const Model* model, const Matrix4* transform)
 			(void*)0                          // array buffer offset
 		);
 
-		// Draw the triangle !
-		glDrawArrays(GL_TRIANGLES, 0, 12 * 3); // Starting from vertex 0; 3 vertices total -> 1 triangle
+		// Normals
+		glEnableVertexAttribArray(2);
+		glBindBuffer(GL_ARRAY_BUFFER, model->meshes.at(i)->normalBufferLocation);
+		glVertexAttribPointer(
+			2,                                // attribute
+			3,                                // size
+			GL_FLOAT,                         // type
+			GL_FALSE,                         // normalized?
+			0,                                // stride
+			(void*)0                          // array buffer offset
+		);
+
+		// Draw Call
+		glDrawElements(
+			GL_TRIANGLES,      // mode
+			model->meshes.at(i)->indexBuffer.size(),    // count
+			GL_UNSIGNED_SHORT,  // type
+			(void*)0           // element array buffer offset
+		);
 
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
+		glDisableVertexAttribArray(2);
 
 		if (glGetError() != GL_NO_ERROR) 
 		{

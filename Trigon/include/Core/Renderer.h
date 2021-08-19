@@ -6,6 +6,25 @@
 #include <vector>
 #include "Types/Model.h"
 
+template <typename T>
+class Buffer
+{
+public:
+	static unsigned int Bind(const std::vector<T> buffer);
+};
+
+template <typename T>
+unsigned int Buffer<T>::Bind(const std::vector<T> buffer)
+{
+	if (buffer.size() < 1) return -1;
+
+	GLuint vertexbuffer;
+	glGenBuffers(1, &vertexbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
+	glBufferData(GL_ARRAY_BUFFER, buffer.size() * sizeof(buffer.at(0)), buffer.data(), GL_STATIC_DRAW);
+	return vertexbuffer;
+}
+
 class Renderer
 {
 private:
@@ -15,7 +34,6 @@ private:
 
 public:
 	static void			CreateInstance();
-	static unsigned int BindBuffer(const std::vector<float> buffer);
 	static void			UnbindBuffer(const unsigned int buffer);
 	static unsigned int	BindTexture2D(Texture2D* texture);
 	static void			Clear();
