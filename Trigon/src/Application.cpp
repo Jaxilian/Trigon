@@ -2,6 +2,7 @@
 #include "core/WindowManager.h"
 #include "Core/Renderer.h"
 #include "Editor/EditorGUI.h"
+#include "Engine/Materials/DefaultMaterial.h"
 
 EditorGUI* editor;
 
@@ -16,7 +17,7 @@ Application::BaseSetup()
 	WindowManager::CreateInstance();
 	Renderer::CreateInstance();
 	editor = new EditorGUI();
-
+	DefaultMaterial::instance = new DefaultMaterial();
 }
 
 void
@@ -61,6 +62,7 @@ Application::OnLateUpdate()
 void
 Application::OnQuit()
 {
+	delete DefaultMaterial::instance;
 	delete editor;
 	WindowManager::ReleaseInstance();
 	Renderer::ReleaseInstance();

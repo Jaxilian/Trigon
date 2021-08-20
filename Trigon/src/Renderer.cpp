@@ -63,6 +63,8 @@ Renderer::CreateOpenGlContext()
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 	glEnable(GL_CULL_FACE);
+	glCullFace(GL_FRONT);
+	glFrontFace(GL_CCW);
 
 }
 unsigned int	
@@ -98,7 +100,7 @@ Renderer::UnbindBuffer(const unsigned int buffer)
 }
 
 void			
-Renderer::DrawModel(const Model* model, const Matrix4* transform) 
+Renderer::DrawModel(const Model* model) 
 {
 	////////////////////////////////////////////////////////////////////
 	//
@@ -113,18 +115,22 @@ Renderer::DrawModel(const Model* model, const Matrix4* transform)
 
 	// Get current camera active
 	Camera* cam = Camera::currentCamera;
-
-	//Create mvp for shader
-	glm::mat4 mvp = cam->projection.data * cam->transform.data * transform->data;
-
-	//Assign mvp to shader (Forced) otherwise crash
-	glUniformMatrix4fv(model->material->shader->mvpLocation, 1, GL_FALSE, &mvp[0][0]);
+	if (cam == nullptr)
+	{
+#ifdef _DEBUG
+		Debug::LogError("No camera active, can't render\n");
+#endif
+		return;
+	}
 
 	////////////////////////////////////////////////////////////////////
 	//
 	//	Perform dynamic shading protocol
 	//
 	////////////////////////////////////////////////////////////////////
+
+	// Assign base matrices to shader
+
 
 	// Assign all matrices to shader
 
@@ -141,28 +147,13 @@ Renderer::DrawModel(const Model* model, const Matrix4* transform)
 	// Pass all textures to shader
 	if (textures->size() > 0) 
 	{
-		if (textures->size() > 2) Debug::LogError("Renderer is not completed! Can only render two textures");
-		for (int i = 0; i < textures->size(); i++) 
-		{
-			switch (i) 
-			{
-			case 0:
-				glActiveTexture(GL_TEXTURE0);
-				glBindTexture(GL_TEXTURE_2D, textures->at(i).value->location);
+		// For texture
+		
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, textures->at(0).value->location);
 
-				glUniform1i(textures->at(i).location, 0);
+		glUniform1i(textures->at(0).location, 0);
 
-				break;
-			case 1:
-				glActiveTexture(GL_TEXTURE1);
-				glBindTexture(GL_TEXTURE_2D, textures->at(i).value->location);
-
-				glUniform1i(textures->at(i).location, 0);
-				break;
-			default: break;
-			}
-
-		}
 	}
 
 
@@ -222,7 +213,7 @@ Renderer::DrawModel(const Model* model, const Matrix4* transform)
 
 		if (glGetError() != GL_NO_ERROR) 
 		{
-			printf("%s\n", glGetError());
+			printf("Error: %d\n", glGetError());
 		}
 	}
 
@@ -231,7 +222,14 @@ Renderer::DrawModel(const Model* model, const Matrix4* transform)
 unsigned int 
 Renderer::GetUniformLocation(unsigned int programID, const char* name) 
 {
-	return glGetUniformLocation(programID, name);
+	GLuint result = glGetUniformLocation(programID, name);
+	switch (result) 
+	{
+	case GL_INVALID_VALUE:
+		Debug::LogError("Get Uniform value is not valid!");
+		break;
+	}
+	return result;
 }
 
 void

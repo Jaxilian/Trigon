@@ -37,7 +37,7 @@ public:
 	static void			UnbindBuffer(const unsigned int buffer);
 	static unsigned int	BindTexture2D(Texture2D* texture);
 	static void			Clear();
-	static void			DrawModel(const Model* model, const Matrix4* transform);
+	static void			DrawModel(const Model* model);
 	static unsigned int GetUniformLocation(unsigned int programID, const char* name);
 	static void			UnbindTexture2D(Texture2D* texture);
 	static void			UnbindShader(Shader* shader);

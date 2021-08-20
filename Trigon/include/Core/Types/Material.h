@@ -5,10 +5,14 @@ class Renderer;
 class Material
 {
 friend Renderer;
-private:
+public:
 	Shader* shader = nullptr;
 
-public:
+	Material() 
+	{
+
+	}
+
 	Material(Shader* assignedShader) 
 	{
 		shader = assignedShader;

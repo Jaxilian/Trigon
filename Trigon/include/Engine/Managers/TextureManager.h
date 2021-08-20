@@ -6,6 +6,7 @@ class TextureManager
 {
 public:
 	static Texture2D* CreateTexture(const char* path);
+	static void		  DestroyTexture(Texture2D* texture);
 
 };
 

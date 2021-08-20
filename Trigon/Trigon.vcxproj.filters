@@ -319,6 +319,7 @@
     <ClInclude Include="include\Editor\imgui_impl_opengl3.h" />
     <ClInclude Include="include\Core\Input.h" />
     <ClInclude Include="include\Math\Vector2.h" />
+    <ClInclude Include="include\Engine\Materials\DefaultMaterial.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MainEntry.cpp" />
@@ -349,6 +350,7 @@
     <ClCompile Include="include\Editor\imgui_impl_glfw.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Vector2.cpp" />
+    <ClCompile Include="src\DefaultMaterial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\glm\glm\detail\func_common.inl" />

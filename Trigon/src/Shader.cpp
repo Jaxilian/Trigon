@@ -7,31 +7,74 @@
 Shader::Shader(const char* vertex_file_path, const char* fragment_file_path)
 {
 	programID	= LoadGLSLShaders(vertex_file_path, fragment_file_path);
-	mvpLocation = glGetUniformLocation(programID, "MVP");
 }
 
 void
-Shader::AddUniformFloat(UniformFloat& uniFloat)
+Shader::AddUniformFloat(const char* name, float* value)
 {
+	UniformFloat uniFloat;
+	uniFloat.name	= name;
+	uniFloat.value	= value;
 	uniFloat.location = Renderer::GetUniformLocation(programID, uniFloat.name);
 	uniformFloats.push_back(uniFloat);
 }
 
 void
-Shader::AddUniformTex2D(UniformTex2D& uniTex2D)
+Shader::AddUniformTex2D(const char* name, Texture2D* value)
 {
-	uniTex2D.location = Renderer::GetUniformLocation(programID, uniTex2D.name);
+	UniformTex2D uniTex2D;
+	uniTex2D.name		= name;
+	uniTex2D.value		= value;
+	uniTex2D.location	= Renderer::GetUniformLocation(programID, name);
 	uniformTex2Ds.push_back(uniTex2D);
 }
 
 void
-Shader::SetUniformFloat(const char* name, float value)
+Shader::SetUniformTex2D(const char* name, Texture2D* value)
+{
+	for (int i = 0; i < uniformTex2Ds.size(); i++)
+	{
+		if (strcmp(uniformTex2Ds[i].name, name) == 0)
+		{
+			uniformTex2Ds[i].value = value;
+			return;
+		}
+	}
+}
+
+void
+Shader::SetUniformFloat(const char* name, float* value)
 {
 	for (int i = 0; i < uniformFloats.size(); i++) 
 	{
 		if (strcmp(uniformFloats[i].name, name) == 0) 
 		{
 			uniformFloats[i].value = value;
+			return;
+		}
+	}
+}
+
+void
+Shader::AddUniformMat4f(const char* name, Matrix4* value)
+{
+	UniformMat4f uniMat4;
+
+	uniMat4.name		= name;
+	uniMat4.value		= value;
+	uniMat4.location	= Renderer::GetUniformLocation(programID, name);
+
+	uniformMat4fs.push_back(uniMat4);
+}
+
+void
+Shader::SetUniformMat4f(const char* name, Matrix4* value)
+{
+	for (int i = 0; i < uniformMat4fs.size(); i++)
+	{
+		if (strcmp(uniformMat4fs[i].name, name) == 0)
+		{
+			uniformMat4fs[i].value = value;
 			return;
 		}
 	}
@@ -149,24 +192,4 @@ Shader::LoadGLSLShaders(const char* vertex_file_path, const char* fragment_file_
 	glDeleteShader(FragmentShaderID);
 
 	return ProgramID;
-}
-
-void
-Shader::AddUniformMat4f(UniformMat4f& uniMatFloat)
-{
-	uniMatFloat.location = Renderer::GetUniformLocation(programID, uniMatFloat.name);
-	uniformMat4fs.push_back(uniMatFloat);
-}
-
-void
-Shader::SetUniformMat4f(const char* name, Matrix4* value)
-{
-	for (int i = 0; i < uniformMat4fs.size(); i++)
-	{
-		if (strcmp(uniformMat4fs[i].name, name) == 0)
-		{
-			uniformMat4fs[i].value = value;
-			return;
-		}
-	}
 }
