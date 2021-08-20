@@ -69,6 +69,8 @@ WindowManager::CreateInstance()
 	glfwSetFramebufferSizeCallback(ptr->window, framebuffer_size_callback);
 
 	Debug::LogStatus(DebugColor::Green, DebugType::Create, DebugResult::Success, "Window");
+
+	glfwSetInputMode(ptr->window, GLFW_STICKY_KEYS, GLFW_TRUE);
 	return true;
 }
 

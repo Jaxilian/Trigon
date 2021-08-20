@@ -8,10 +8,10 @@ class Vector2
 
 private:
 	glm::vec2 data	= glm::vec2(0.0f);
-	float& x		= data.x;
-	float& y		= data.y;
 
 public:
+	float& x		= data.x;
+	float& y		= data.y;
 	
 	Vector2();
 	Vector2(float x, float y);
