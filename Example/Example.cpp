@@ -79,16 +79,11 @@ Example::OnUpdate()
 
     Vector2 cursorAxis = Input::GetMouseAxis();
 
-    Vector3 direction
-    (
-        cos(cursorAxis.y) * sin(cursorAxis.x),
-        sin(cursorAxis.y),
-        cos(cursorAxis.y) * cos(cursorAxis.x)
-    );
+    Vector3 direction;
 
-    direction.x = direction.x / 10;
-    direction.y = direction.y / 10;
-    direction.z = direction.z / 10;
+    direction.x = (cursorAxis.y * 1) / 100;
+    direction.y = (cursorAxis.x * -1) / 100;
+    direction.z = 0;
 
     camera->transform.Rotate(Vector3(direction));
 
