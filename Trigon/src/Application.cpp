@@ -4,6 +4,9 @@
 #include "Editor/EditorGUI.h"
 #include "Engine/Materials/DefaultMaterial.h"
 
+
+
+
 EditorGUI* editor;
 
 Application::Application()
@@ -23,7 +26,9 @@ Application::BaseSetup()
 void
 Application::OnInit()
 {
-
+	m_pError	= new CPhysicsError();
+	m_pAllocator = new CPhysicsAllocator();
+	physx::PxFoundation* found = PxCreateFoundation(PX_PHYSICS_VERSION, *m_pAllocator, *m_pError);
 
 }
 
