@@ -23,18 +23,15 @@ Example::OnInit()
 {
     Application::OnInit();;
 
-    camera = new Camera(45.0f, 0.1f, 10000.0f);
+    camera = new Camera(80.0f, 0.1f, 10000.0f);
     camera->transform = Matrix4();
-    camera->transform.scale = Vector3(1, 1, 1);
-    camera->transform.SetPosition(Vector3(0, 0, 0));
-    camera->transform.ApplyChanges();
     //camera->transform.SetPosition(Vector3(4, 3, 3));
+    //camera->transform.ApplyChanges();
     //camera->transform.LookAt(Vector3(0, 0, 0), Vector3(0, 1, 0));
 
 
     modelMatrix     = new Matrix4();
-    modelMatrix->scale = Vector3(1, 1, 1);
-    modelMatrix->SetPosition(Vector3(0,0,-2));
+    modelMatrix->SetPosition(Vector3(0,0,-2.0f));
     modelMatrix->ApplyChanges();
 
 
@@ -74,22 +71,14 @@ Example::OnUpdate()
 
     if (Input::GetKey(KeyCode::W)) camera->transform.Translate(camera->transform.forward * 0.005f);
     if (Input::GetKey(KeyCode::S)) camera->transform.Translate(camera->transform.forward * -0.005f);
-    if (Input::GetKey(KeyCode::A)) camera->transform.Translate(camera->transform.right * -0.005f);
-    if (Input::GetKey(KeyCode::D)) camera->transform.Translate(camera->transform.right *  0.005f);
-
-    Vector2 cursorAxis = Input::GetMouseAxis();
-
-    Vector3 direction;
-
-    direction.x = (cursorAxis.y * 1) / 100;
-    direction.y = (cursorAxis.x * -1) / 100;
-    direction.z = 0;
-
-    camera->transform.Rotate(Vector3(direction));
+    if (Input::GetKey(KeyCode::A)) camera->transform.Translate(camera->transform.right *  0.005f);
+    if (Input::GetKey(KeyCode::D)) camera->transform.Translate(camera->transform.right *  -0.005f);
+    if (Input::GetKey(KeyCode::E)) camera->transform.Rotate(Vector3(0.0f, 0.005f, 0.0f));
+    if (Input::GetKey(KeyCode::Q)) camera->transform.Rotate(Vector3(0.0f, -0.005f, 0.0f));
 
 
 
-    if (Input::GetKey(KeyCode::ESCAPE)) Input::SetCursorLockState(!Input::GetCursorLockState());
+    if (Input::GetKey(KeyCode::ESCAPE)) Quit();
 
  
     if (Input::GetKey(KeyCode::SPACE))
@@ -101,6 +90,8 @@ Example::OnUpdate()
     {
         camera->transform.Translate(camera->transform.up * -0.005f);
     }
+
+    camera->transform.ApplyChanges();
 
     DefaultMaterial::instance->UpdateValues(camera, modelMatrix);
     Renderer::DrawModel(model);

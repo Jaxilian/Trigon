@@ -40,7 +40,8 @@ class Application
 {
 private:
 
-	bool appShouldQuit = false;
+	bool appShouldQuit	= false;
+	bool overrideQuit	= false;
 	CPhysicsAllocator*	m_pAllocator;
 	CPhysicsError*		m_pError;
 
@@ -60,6 +61,7 @@ public:
 	virtual void OnQuit();
 
 	bool ShouldQuit();
+	void Quit();
 };
 
 

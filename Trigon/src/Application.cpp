@@ -67,7 +67,7 @@ Application::OnLateUpdate()
 void
 Application::OnQuit()
 {
-	delete DefaultMaterial::instance;
+	if (DefaultMaterial::instance)delete DefaultMaterial::instance;
 	delete editor;
 	WindowManager::ReleaseInstance();
 	Renderer::ReleaseInstance();
@@ -76,6 +76,12 @@ Application::OnQuit()
 bool
 Application::ShouldQuit()
 {
-	return appShouldQuit;
+	if (overrideQuit) return true;
+	return appShouldQuit ;
 }
 
+void
+Application::Quit()
+{
+	overrideQuit = true;
+}
