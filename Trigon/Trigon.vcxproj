@@ -660,6 +660,7 @@
     <ClInclude Include="include\Core\Input.h" />
     <ClInclude Include="include\Core\Renderer.h" />
     <ClInclude Include="include\Core\Shader.h" />
+    <ClInclude Include="include\Core\Time.h" />
     <ClInclude Include="include\Core\Types\Material.h" />
     <ClInclude Include="include\Core\Types\Mesh.h" />
     <ClInclude Include="include\Core\Types\Model.h" />
@@ -709,6 +710,7 @@
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\Texture2D.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
+    <ClCompile Include="src\Time.cpp" />
     <ClCompile Include="src\Vector2.cpp" />
     <ClCompile Include="src\Vector3.cpp" />
     <ClCompile Include="src\WindowManager.cpp" />

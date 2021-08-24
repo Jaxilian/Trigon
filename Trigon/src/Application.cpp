@@ -3,7 +3,7 @@
 #include "Core/Renderer.h"
 #include "Editor/EditorGUI.h"
 #include "Engine/Materials/DefaultMaterial.h"
-
+#include "Core/Time.h"
 
 
 
@@ -61,6 +61,7 @@ Application::OnLateUpdate()
 {
 	glfwSwapBuffers(WindowManager::GetInstance()->window);
 	glfwPollEvents();
+	Time::Update();
 	appShouldQuit = glfwWindowShouldClose(WindowManager::GetInstance()->window);
 }
 

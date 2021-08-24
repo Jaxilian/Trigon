@@ -505,6 +505,7 @@
     <ClInclude Include="Dependencies\PhysX\include\characterkinematic\PxControllerManager.h" />
     <ClInclude Include="Dependencies\PhysX\include\characterkinematic\PxControllerObstacles.h" />
     <ClInclude Include="Dependencies\PhysX\include\characterkinematic\PxExtended.h" />
+    <ClInclude Include="include\Core\Time.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MainEntry.cpp" />
@@ -536,6 +537,7 @@
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Vector2.cpp" />
     <ClCompile Include="src\DefaultMaterial.cpp" />
+    <ClCompile Include="src\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\glm\glm\detail\func_common.inl" />

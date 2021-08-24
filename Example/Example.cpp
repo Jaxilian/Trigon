@@ -7,6 +7,7 @@
 #include "Engine/Managers/TextureManager.h"
 #include "Core/Input.h"
 #include "Engine/Materials/DefaultMaterial.h"
+#include "Core/Time.h"
 
 Model*      model;
 Mesh*       mesh;
@@ -32,10 +33,11 @@ Example::OnInit()
 
     modelMatrix     = new Matrix4();
     modelMatrix->SetPosition(Vector3(0,0,-2.0f));
+    modelMatrix->Rotate(Vector3(-90, 0, 0));
     modelMatrix->ApplyChanges();
 
 
-    model = ModelManager::LoadModel("assets/Untitled.fbx");
+    model = ModelManager::LoadModel("assets/Door.fbx");
     model->material = DefaultMaterial::instance;
 
     Input::SetCursorLockState(true);
@@ -69,12 +71,12 @@ Example::OnUpdate()
 {
     Application::OnUpdate();
 
-    if (Input::GetKey(KeyCode::W)) camera->transform.Translate(camera->transform.forward * 0.005f);
-    if (Input::GetKey(KeyCode::S)) camera->transform.Translate(camera->transform.forward * -0.005f);
-    if (Input::GetKey(KeyCode::A)) camera->transform.Translate(camera->transform.right *  0.005f);
-    if (Input::GetKey(KeyCode::D)) camera->transform.Translate(camera->transform.right *  -0.005f);
-    if (Input::GetKey(KeyCode::E)) camera->transform.Rotate(Vector3(0.0f, 0.005f, 0.0f));
-    if (Input::GetKey(KeyCode::Q)) camera->transform.Rotate(Vector3(0.0f, -0.005f, 0.0f));
+    if (Input::GetKey(KeyCode::W)) camera->transform.Translate(camera->transform.forward * 0.5f * Time::deltaTime);
+    if (Input::GetKey(KeyCode::S)) camera->transform.Translate(camera->transform.forward * -0.5f * Time::deltaTime);
+    if (Input::GetKey(KeyCode::A)) camera->transform.Translate(camera->transform.right * 0.5f * Time::deltaTime);
+    if (Input::GetKey(KeyCode::D)) camera->transform.Translate(camera->transform.right *  -0.5f * Time::deltaTime);
+    if (Input::GetKey(KeyCode::E)) camera->transform.Rotate(Vector3(0.0f, 1.0f * Time::deltaTime, 0.0f));
+    if (Input::GetKey(KeyCode::Q)) camera->transform.Rotate(Vector3(0.0f, -1.0f * Time::deltaTime, 0.0f));
 
 
 
@@ -83,12 +85,12 @@ Example::OnUpdate()
  
     if (Input::GetKey(KeyCode::SPACE))
     {
-        camera->transform.Translate(camera->transform.up * 0.005f);
+        camera->transform.Translate(camera->transform.up * 0.5f * Time::deltaTime);
     }
 
     if (Input::GetKey(KeyCode::LEFT_CONTROL))
     {
-        camera->transform.Translate(camera->transform.up * -0.005f);
+        camera->transform.Translate(camera->transform.up * -0.5f * Time::deltaTime);
     }
 
     camera->transform.ApplyChanges();

@@ -58,7 +58,7 @@ Matrix4::ApplyChanges()
 {
 	glm::mat4 transform = glm::mat4(1.0f);
 	scaleMat		= glm::scale(transform,glm::vec3(scale.x, scale.y, scale.z));
-	orientationMat	= glm::eulerAngleXYZ(rotation.x, rotation.y, rotation.z);
+	orientationMat	= glm::eulerAngleXYZ(glm::radians(rotation.x), glm::radians(rotation.y), glm::radians(rotation.z));
 	translationMat	= glm::translate(glm::mat4(1.0f), glm::vec3(position.x, position.y, position.z));
 
 
