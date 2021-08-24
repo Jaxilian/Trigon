@@ -154,9 +154,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Example.h" />
+    <ClInclude Include="source\code\SampleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Example.cpp" />
+    <ClCompile Include="source\code\SampleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Trigon\Trigon.vcxproj">

@@ -5,8 +5,6 @@
 #include "Engine/Materials/DefaultMaterial.h"
 #include "Core/Time.h"
 
-
-
 EditorGUI* editor;
 
 Application::Application()

@@ -6,11 +6,11 @@
 class		CEntity;
 class		IComponent;
 
-class IWorld
+class IScene
 {
 private:
-	static	IWorld*			m_pCurrentWorld;
-	const	char*			m_Name;
+	static	IScene*					m_pCurrentWorld;
+	const	char*					m_Name;
 
 	std::vector<CEntity*>*			m_pEntities		= nullptr;
 
@@ -22,11 +22,11 @@ public:
 	void		Update			( void );
 
 //////////////////////////////////////////////////////////////////////////
-	static IWorld*					GetCurrentWorld();
-	static void						SetActiveWorld(IWorld* world);
+	static IScene*					GetCurrentWorld();
+	static void						SetActiveWorld(IScene* world);
 
-	IWorld();
-	~IWorld();
+	IScene();
+	~IScene();
 
 //////////////////////////////////////////////////////////////////////////
 };

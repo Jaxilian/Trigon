@@ -2,8 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="Example.h" />
+    <ClInclude Include="source\code\SampleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Example.cpp" />
+    <ClCompile Include="source\code\SampleScene.cpp" />
   </ItemGroup>
 </Project>

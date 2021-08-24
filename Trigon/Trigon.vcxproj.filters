@@ -510,6 +510,7 @@
     <ClInclude Include="include\Engine\Scenes\IScene.h" />
     <ClInclude Include="include\Engine\Entities\CEntity.h" />
     <ClInclude Include="include\Engine\Components\IComponent.h" />
+    <ClInclude Include="include\Engine\Components\IModelRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MainEntry.cpp" />
@@ -546,6 +547,7 @@
     <ClCompile Include="src\IScene.cpp" />
     <ClCompile Include="src\IComponent.cpp" />
     <ClCompile Include="src\CEntity.cpp" />
+    <ClCompile Include="src\IModelRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\glm\glm\detail\func_common.inl" />

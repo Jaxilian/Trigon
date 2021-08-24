@@ -1,20 +1,20 @@
 #include "Engine/Scenes/IScene.h"
 #include "Engine/Entities/CEntity.h"
 
-IWorld* IWorld::m_pCurrentWorld = nullptr;
+IScene* IScene::m_pCurrentWorld = nullptr;
 
-IWorld* IWorld::GetCurrentWorld() 
+IScene* IScene::GetCurrentWorld() 
 {
 	return m_pCurrentWorld;
 }
 
 
-IWorld::IWorld() 
+IScene::IScene() 
 {
 	m_pEntities		= new std::vector<CEntity*>();
 }
 
-IWorld::~IWorld() 
+IScene::~IScene() 
 {
 	for (int i = 0; i < m_pEntities->size(); i++) 
 	{
@@ -25,7 +25,7 @@ IWorld::~IWorld()
 }
 
 void
-IWorld::SetActiveWorld(IWorld* world)
+IScene::SetActiveWorld(IScene* world)
 {
 	if (m_pCurrentWorld) delete m_pCurrentWorld;
 	m_pCurrentWorld = world;
@@ -39,7 +39,7 @@ IWorld::SetActiveWorld(IWorld* world)
 //                                                                //
 //*/////////////////////////////////////////////////////////////////
 void
-IWorld::Update( void )
+IScene::Update( void )
 {
 
 	// Update all entities in world
@@ -54,7 +54,7 @@ IWorld::Update( void )
 }	// */ // Update
 
 CEntity*
-IWorld::CreateEntity(const char* name)
+IScene::CreateEntity(const char* name)
 {
 	//////////////////////////////////////////////////////////////////////////
 

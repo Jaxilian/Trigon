@@ -8,6 +8,8 @@
 #include "Core/Input.h"
 #include "Engine/Materials/DefaultMaterial.h"
 #include "Core/Time.h"
+#include "Engine/Entities/CEntity.h"
+#include "Engine/Components/IModelRenderer.h"
 
 Model*      model;
 Mesh*       mesh;
@@ -15,14 +17,23 @@ Mesh*       mesh;
 Matrix4*    modelMatrix;
 Camera*     camera;
 
-float horizontalAngle;
-float verticalAngle;
+float       horizontalAngle;
+float       verticalAngle;
 
 
 void
 Example::OnInit()
 {
-    Application::OnInit();;
+    Application::OnInit();
+
+    scene = new SampleScene();
+    scene->SetActiveWorld(scene);
+
+    CEntity* entity;
+    entity = scene->CreateEntity("Door");
+    entity->AddComponent<IModelRenderer>();
+    //entity->GetComponent<IModelRenderer>()->model = ModelManager::LoadModel("assets/Door.fbx"); 
+    
 
     camera = new Camera(80.0f, 0.1f, 10000.0f);
     camera->transform = Matrix4();
@@ -110,7 +121,7 @@ Example::OnLateUpdate()
 void
 Example::OnQuit()
 {
-   
+    delete scene;
     
     ModelManager::DestroyModelChain(model);
     delete modelMatrix;

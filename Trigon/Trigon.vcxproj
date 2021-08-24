@@ -678,6 +678,7 @@
     <ClInclude Include="include\Editor\imstb_truetype.h" />
     <ClInclude Include="include\Editor\Panels\PInspector.h" />
     <ClInclude Include="include\Engine\Components\IComponent.h" />
+    <ClInclude Include="include\Engine\Components\IModelRenderer.h" />
     <ClInclude Include="include\Engine\Entities\CEntity.h" />
     <ClInclude Include="include\Engine\Managers\ModelManager.h" />
     <ClInclude Include="include\Engine\Managers\TextureManager.h" />
@@ -705,6 +706,7 @@
     <ClCompile Include="src\DefaultMaterial.cpp" />
     <ClCompile Include="src\EditorGUI.cpp" />
     <ClCompile Include="src\IComponent.cpp" />
+    <ClCompile Include="src\IModelRenderer.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\IScene.cpp" />
     <ClCompile Include="src\MainEntry.cpp" />
