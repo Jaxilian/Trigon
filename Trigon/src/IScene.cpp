@@ -11,7 +11,7 @@ IScene* IScene::GetCurrentWorld()
 
 IScene::IScene() 
 {
-	m_pEntities		= new std::vector<CEntity*>();
+	m_pEntities		= new std::vector<Entity*>();
 }
 
 IScene::~IScene() 
@@ -45,7 +45,7 @@ IScene::Update( void )
 	// Update all entities in world
 	for (int EntityIndex = 0; EntityIndex < m_pEntities->size(); ++EntityIndex)
 	{
-		CEntity* pEntity = m_pEntities->at(EntityIndex);
+		Entity* pEntity = m_pEntities->at(EntityIndex);
 
 		pEntity->Update();
 	}
@@ -53,15 +53,15 @@ IScene::Update( void )
 
 }	// */ // Update
 
-CEntity*
+Entity*
 IScene::CreateEntity(const char* name)
 {
 	//////////////////////////////////////////////////////////////////////////
 
 	// Create entity
 
-	CEntity* Entity;
-	Entity = new CEntity(name);
+	Entity* Entity;
+	Entity = new Entity(name);
 
 	// Add entity to list
 	m_pEntities->push_back(Entity);

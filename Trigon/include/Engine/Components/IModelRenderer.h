@@ -3,7 +3,7 @@
 #include "IComponent.h"
 #include "Core/Types/Model.h"
 
-class IModelRenderer : public IComponent
+class IModelRenderer : public Component
 {
 public:
 	Model*			model;

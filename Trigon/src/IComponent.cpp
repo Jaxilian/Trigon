@@ -7,7 +7,7 @@
 //  Info:
 //                                                                    //
 //*/////////////////////////////////////////////////////////////////////
-IComponent::IComponent( )
+Component::Component( )
 	: m_pEntity(NULL), Enabled(true)
 {
 
@@ -19,7 +19,7 @@ IComponent::IComponent( )
 //  Info:
 //                                                                     //
 //*//////////////////////////////////////////////////////////////////////
-IComponent::~IComponent( void )
+Component::~Component( void )
 {
 
 }	// */ // ~IComponent
@@ -31,7 +31,7 @@ IComponent::~IComponent( void )
 //                                                              //
 //*///////////////////////////////////////////////////////////////
 void
-IComponent::Load( void )
+Component::Load( void )
 {
 
 }	// */ // OnLoad
@@ -43,7 +43,7 @@ IComponent::Load( void )
 //                                                                //
 //*/////////////////////////////////////////////////////////////////
 void
-IComponent::Unload( void )
+Component::Unload( void )
 {
 
 }	// */ // Unload
@@ -55,7 +55,7 @@ IComponent::Unload( void )
 //                                                                //
 //*/////////////////////////////////////////////////////////////////
 void
-IComponent::Update( void )
+Component::Update( void )
 {
 
 }	// */ // Update

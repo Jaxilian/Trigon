@@ -11,11 +11,11 @@
 #define CEntity_H
 #pragma once
 
-class IComponent;
+class Component;
 class TransformComponent;
 #include <vector>
 
-class CEntity
+class Entity
 {
 public:
 
@@ -26,8 +26,8 @@ public:
 
 	//////////////////////////////////////////////////////////////////////////
 
-	 CEntity(const char* name);
-	~CEntity();
+	 Entity(const char* name);
+	~Entity();
 
 	//////////////////////////////////////////////////////////////////////////
 
@@ -47,7 +47,7 @@ public:
 	template< typename T >
 	const T* GetComponent(void) const
 	{
-		for (IComponent* pComponent : m_Components)
+		for (Component* pComponent : m_Components)
 		{
 			if (&typeid(T) == &typeid(*pComponent))
 				return static_cast<T*>(pComponent);
@@ -66,7 +66,7 @@ private:
 
 	//////////////////////////////////////////////////////////////////////////
 
-	std::vector< IComponent* >	m_Components;
+	std::vector< Component* >	m_Components;
 	const char* m_EntityID;
 	const char* m_Name;
 };

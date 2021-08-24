@@ -1,47 +1,47 @@
 #ifndef SHADER_H
 #define SHADER_H
 #include <vector>
-#include "Math/Matrix4.h"
-#include "Math/Vector3.h"
+#include "Core/Math/Matrix4.h"
+#include "Core/Math/Vector3.h"
 
-class Renderer;
+class RendererGL;
 class Texture2D;
 
 struct UniformFloat
 {
 	unsigned int	location = -1;
-	const char*		name;
-	float*			value;
+	const char* name;
+	float* value;
 };
 struct UniformInt
 {
 	unsigned int	location = -1;
-	const char*		name;
-	int*			value;
+	const char* name;
+	int* value;
 };
 struct UniformV3f
 {
 	unsigned int	location = -1;
-	const char*		name;
-	Vector3*		value;
+	const char* name;
+	Vector3* value;
 };
 struct UniformMat4f
 {
 	unsigned int	location = -1;
-	const char*		name;
-	Matrix4*		value;
+	const char* name;
+	Matrix4* value;
 };
-struct UniformTex2D 
+struct UniformTex2D
 {
 	unsigned int	location = -1;
-	const	 char*	name;
-	Texture2D*		value;
+	const	 char* name;
+	Texture2D* value;
 };
 
 
 class Shader
 {
-	friend Renderer;
+	friend RendererGL;
 private:
 	unsigned int programID;
 
@@ -58,22 +58,22 @@ public:
 	Shader(const char* vertex_file_path, const char* fragment_file_path);
 
 	void
-	AddUniformTex2D(const char* name, Texture2D* value);
+		AddUniformTex2D(const char* name, Texture2D* value);
 
 	void
-	SetUniformTex2D(const char* name, Texture2D* value);
+		SetUniformTex2D(const char* name, Texture2D* value);
 
 	void
-	AddUniformFloat(const char* name, float* value);
+		AddUniformFloat(const char* name, float* value);
 
 	void
-	SetUniformFloat(const char* name, float* value);
+		SetUniformFloat(const char* name, float* value);
 
 	void
-	AddUniformMat4f(const char* name, Matrix4* value);
+		AddUniformMat4f(const char* name, Matrix4* value);
 
 	void
-	SetUniformMat4f(const char* name, Matrix4* value);
+		SetUniformMat4f(const char* name, Matrix4* value);
 
 };
 

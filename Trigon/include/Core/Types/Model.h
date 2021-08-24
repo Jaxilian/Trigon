@@ -6,7 +6,7 @@
 class Model
 {
 public:
-	Material*			material;
+	Material*			material	= nullptr;
 	std::vector<Mesh*>	meshes;
 
 	Model() {};

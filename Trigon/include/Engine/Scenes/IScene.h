@@ -3,8 +3,8 @@
 #pragma once
 #include <vector>
 
-class		CEntity;
-class		IComponent;
+class		Entity;
+class		Component;
 
 class IScene
 {
@@ -12,13 +12,13 @@ private:
 	static	IScene*					m_pCurrentWorld;
 	const	char*					m_Name;
 
-	std::vector<CEntity*>*			m_pEntities		= nullptr;
+	std::vector<Entity*>*			m_pEntities		= nullptr;
 
 //////////////////////////////////////////////////////////////////////////
 
 public:
 
-	CEntity*	CreateEntity	( const char* name	);
+	Entity*	CreateEntity	( const char* name	);
 	void		Update			( void );
 
 //////////////////////////////////////////////////////////////////////////

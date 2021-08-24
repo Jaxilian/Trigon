@@ -9,15 +9,15 @@
 #define IComponent_H
 
 
-class CEntity;
+class Entity;
 
-class IComponent
+class Component
 {
 public:
 
 	//////////////////////////////////////////////////////////////////////////
 
-	friend class CEntity;
+	friend class Entity;
 
 	//////////////////////////////////////////////////////////////////////////
 
@@ -25,8 +25,8 @@ public:
 
 	//////////////////////////////////////////////////////////////////////////
 
-				 IComponent( void );
-	virtual		~IComponent( void );
+				 Component( void );
+	virtual		~Component( void );
 
 	//////////////////////////////////////////////////////////////////////////
 
@@ -34,13 +34,13 @@ public:
 	virtual void	Load	( void );
 	virtual void	Unload	( void );
 
-	CEntity*		GetParent() { return m_pEntity; };
+	Entity*		GetParent() { return m_pEntity; };
 
 	//////////////////////////////////////////////////////////////////////////
 
 protected:
 
-	CEntity*	m_pEntity;
+	Entity*	m_pEntity;
 	const char* m_pName;
 };
 #endif // !IComponent_H

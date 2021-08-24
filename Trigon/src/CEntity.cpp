@@ -17,7 +17,7 @@
 //                                                                 //
 //*//////////////////////////////////////////////////////////////////
 
-CEntity::CEntity( const char* name )
+Entity::Entity( const char* name )
 	: Enabled(true)
 {
 	m_Name = name;
@@ -30,7 +30,7 @@ CEntity::CEntity( const char* name )
 //  Info:
 //                                                                  //
 //*///////////////////////////////////////////////////////////////////
-CEntity::~CEntity( void )
+Entity::~Entity( void )
 {;
 	for (int i = 0; i < m_Components.size(); i++) 
 	{
@@ -47,7 +47,7 @@ CEntity::~CEntity( void )
 //                                                                //
 //*/////////////////////////////////////////////////////////////////
 void
-CEntity::Update( void )
+Entity::Update( void )
 {
 	for (int i = 0; i < m_Components.size(); i++) 
 	{
@@ -63,7 +63,7 @@ CEntity::Update( void )
 //                                                                              //
 //*///////////////////////////////////////////////////////////////////////////////
 void
-CEntity::AddComponentInternal(IComponent* pComponent)
+Entity::AddComponentInternal(Component* pComponent)
 {
 	pComponent->m_pEntity = this;
 	pComponent->Load();

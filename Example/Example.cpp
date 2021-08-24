@@ -29,7 +29,7 @@ Example::OnInit()
     scene = new SampleScene();
     scene->SetActiveWorld(scene);
 
-    CEntity* entity;
+    Entity* entity;
     entity = scene->CreateEntity("Door");
     entity->AddComponent<IModelRenderer>();
     //entity->GetComponent<IModelRenderer>()->model = ModelManager::LoadModel("assets/Door.fbx"); 
