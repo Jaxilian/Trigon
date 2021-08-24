@@ -58,7 +58,7 @@ Application::OnUpdate()
 void
 Application::OnLateUpdate()
 {
-	editor->RenderTestWindow();
+	editor->Draw();
 	glfwSwapBuffers(WindowManager::GetInstance()->window);
 	glfwPollEvents();
 	Time::Update();

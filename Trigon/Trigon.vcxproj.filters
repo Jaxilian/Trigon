@@ -506,6 +506,10 @@
     <ClInclude Include="Dependencies\PhysX\include\characterkinematic\PxControllerObstacles.h" />
     <ClInclude Include="Dependencies\PhysX\include\characterkinematic\PxExtended.h" />
     <ClInclude Include="include\Core\Time.h" />
+    <ClInclude Include="include\Editor\Panels\PInspector.h" />
+    <ClInclude Include="include\Engine\Scenes\IScene.h" />
+    <ClInclude Include="include\Engine\Entities\CEntity.h" />
+    <ClInclude Include="include\Engine\Components\IComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\MainEntry.cpp" />
@@ -538,6 +542,10 @@
     <ClCompile Include="src\Vector2.cpp" />
     <ClCompile Include="src\DefaultMaterial.cpp" />
     <ClCompile Include="src\Time.cpp" />
+    <ClCompile Include="src\PInspector.cpp" />
+    <ClCompile Include="src\IScene.cpp" />
+    <ClCompile Include="src\IComponent.cpp" />
+    <ClCompile Include="src\CEntity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\glm\glm\detail\func_common.inl" />
