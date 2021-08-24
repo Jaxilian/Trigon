@@ -53,12 +53,12 @@ Application::OnEarlyUpdate()
 void
 Application::OnUpdate()
 {
-	editor->RenderTestWindow();
 }
 
 void
 Application::OnLateUpdate()
 {
+	editor->RenderTestWindow();
 	glfwSwapBuffers(WindowManager::GetInstance()->window);
 	glfwPollEvents();
 	Time::Update();
