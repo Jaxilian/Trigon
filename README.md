@@ -29,7 +29,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Trigon - Game Engine, was created in 2021 by me as a protfolio project to use in applications for work. The goal is to make the engine available on Linux/Debian based dsitros and windows. 
+Trigon - Game Engine, was created in 2021 by me as a protfolio project to use in applications for work. The goal is to make the engine available on Linux/Debian based distros and windows. 
+
+Trigon supports OpenGL 4.6 and in the future vulkan as well. 
 
 
 <!-- GETTING STARTED -->
