@@ -4,6 +4,7 @@
 #include <vector>
 #include "core/types/TriTypes.h"
 
+
 class Renderer
 {
 
@@ -66,11 +67,11 @@ public:
 	//																	//
 	//////////////////////////////////////////////////////////////////////
 
-	virtual void			ReleaseBuffer	(	unsigned int	bufferID	) {};
+	virtual void			ReleaseBuffer		(	unsigned int	bufferID	) {};
 
-	virtual void			UnbindTexture2D	(	Texture2D*		texture		) {};
+	virtual void			ReleaseTexture2D	(	Texture2D*		texture		) {};
 
-	virtual void			UnbindShader	(	Shader*			shader		) {};
+	virtual void			ReleaseShader		(	Shader*			shader		) {};
 
 
 
@@ -96,9 +97,6 @@ public:
 	static Renderer*		GetInstance			(			void			);
 
 
-
-
-
 	//////////////////////////////////////////////////////////////////////
 	//																	//
 	//		Relase Instance												//
@@ -111,12 +109,17 @@ public:
 
 
 
+	//////////////////////////////////////////////////////////////////////
+	//																	//
+	//		Set Uniforms												//
+	//																	//
+	//////////////////////////////////////////////////////////////////////
 
+	virtual void SetUniformFloat ( const char* name, float*		value	)	{};
 
+	virtual void SetUniformMat4f ( const char* name, Matrix4*	value	)	{};
 
-
-
-
+	virtual void SetUniformTex2D ( const char* name, Texture2D* value	)	{};
 };
 
 #endif // !RENDERER

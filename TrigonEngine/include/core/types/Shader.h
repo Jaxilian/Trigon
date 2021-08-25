@@ -14,7 +14,7 @@ class Shader
 private:
 	unsigned int programID;
 
-
+	Shader(const char* vertexFile, const char* fragmentFile);
 
 };
 

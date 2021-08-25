@@ -6,6 +6,7 @@
 class Model
 {
 public:
+	const char*			name		=	"New Model";
 	Material*			material	=	nullptr;
 	std::vector<Mesh*>	meshes;
 

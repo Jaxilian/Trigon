@@ -26,7 +26,7 @@ Texture2D* TextureManager::CreateTexture(const char* path)
 void	
 TextureManager::DestroyTexture(Texture2D* texture)
 {
-	Renderer::GetInstance()->UnbindTexture2D(texture);
+	Renderer::GetInstance()->ReleaseTexture2D(texture);
 	delete texture;
 	texture = nullptr;
 }

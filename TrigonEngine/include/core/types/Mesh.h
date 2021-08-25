@@ -2,10 +2,12 @@
 #define MESH_H
 #include <vector>
 class Renderer;
+class RendererGL;
 class ModelManager;
 
 class Mesh
 {
+friend RendererGL;
 friend Renderer;
 friend ModelManager;
 private:

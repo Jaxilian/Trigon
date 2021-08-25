@@ -1,6 +1,8 @@
 #include "core/backend/RendererGL.h"
 #include <sstream>
 #include <fstream>
+#include "engine/components/CameraComponent.h"
+#include "engine/scenes/Scene.h"
 
 //////////////////////////////////////////////////////////////////////
 //																	//
@@ -384,7 +386,7 @@ RendererGL::ReleaseBuffer(unsigned int	bufferID)
 }
 
 void			
-RendererGL::UnbindTexture2D(Texture2D* texture)
+RendererGL::ReleaseTexture2D(Texture2D* texture)
 {
 	glDeleteTextures(0, &texture->location);
 
@@ -394,7 +396,7 @@ RendererGL::UnbindTexture2D(Texture2D* texture)
 }
 
 void			
-RendererGL::UnbindShader(Shader* shader) 
+RendererGL::ReleaseShader(Shader* shader) 
 {
 	glDeleteProgram(shader->programID);
 
@@ -421,7 +423,35 @@ RendererGL::ClearViewport(void)
 
 
 
+bool
+RendererGL::UseShader(Shader* program)
+{
+	if (!program)
+	{
+		error = RenderError::ShaderNull;
+		if (error != lastError) Debug::LogError("Shader is nullptr!");
+		lastError = error;
+		return false;
+	}
 
+	glUseProgram(program->programID);
+
+	switch (glGetError())
+	{
+	case GL_INVALID_VALUE:
+		
+		error = RenderError::ShaderNotLoaded;
+		if (error != lastError) Debug::LogError("shader not loaded correctly");
+		lastError = error;
+		return false;
+
+	case GL_NO_ERROR:
+		return true;
+
+	default:
+		return true;
+	}
+}
 
 
 
@@ -435,6 +465,88 @@ RendererGL::ClearViewport(void)
 void			
 RendererGL::Draw(const	Model* model)
 {
+	// Fetch Shader
+
+	if (!model->material) 
+	{
+		error = RenderError::MaterialNull;
+		if (error != lastError) Debug::LogError("No material assigned on %s!", model->name);
+		lastError = error;
+		return;
+	}
+	
+	if (!UseShader(model->material->shader)) return;
+
+
+	// Fetch Camera
+
+	CameraComponent* camera = CameraComponent::activeCamera;
+
+	if (!camera)
+	{
+		error = RenderError::NoCamera;
+		if (error != lastError) Debug::LogError("No camera exist in scene %s!", Scene::GetCurrentScene()->GetName());
+		lastError = error;
+		return;
+	}
+	
+	for (int i = 0; i < model->meshes.size(); i++)
+	{
+		// Vertex
+		glEnableVertexAttribArray(0);
+		glBindBuffer(GL_ARRAY_BUFFER, model->meshes.at(i)->vertexBufferLocation);
+		glVertexAttribPointer(
+			0,                  // attribute 0. No particular reason for 0, but must match the layout in the shader.
+			3,                  // size
+			GL_FLOAT,           // type
+			GL_FALSE,           // normalized?
+			0,                  // stride
+			(void*)0            // array buffer offset
+		);
+
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, model->meshes.at(i)->indexBufferLocation);
+
+		//  UVs
+		glEnableVertexAttribArray(1);
+		glBindBuffer(GL_ARRAY_BUFFER, model->meshes.at(i)->uvBufferLocation);
+		glVertexAttribPointer(
+			1,                                // attribute. No particular reason for 1, but must match the layout in the shader.
+			2,                                // size : U+V => 2
+			GL_FLOAT,                         // type
+			GL_FALSE,                         // normalized?
+			0,                                // stride
+			(void*)0                          // array buffer offset
+		);
+
+		// Normals
+		glEnableVertexAttribArray(2);
+		glBindBuffer(GL_ARRAY_BUFFER, model->meshes.at(i)->normalBufferLocation);
+		glVertexAttribPointer(
+			2,                                // attribute
+			3,                                // size
+			GL_FLOAT,                         // type
+			GL_FALSE,                         // normalized?
+			0,                                // stride
+			(void*)0                          // array buffer offset
+		);
+
+		// Draw Call
+		glDrawElements(
+			GL_TRIANGLES,      // mode
+			model->meshes.at(i)->indexBuffer.size(),    // count
+			GL_UNSIGNED_SHORT,  // type
+			(void*)0           // element array buffer offset
+		);
+
+		glDisableVertexAttribArray(0);
+		glDisableVertexAttribArray(1);
+		glDisableVertexAttribArray(2);
+
+		if (glGetError() != GL_NO_ERROR)
+		{
+			printf("Error: %d\n", glGetError());
+		}
+	}
 	
 }
 
@@ -454,7 +566,7 @@ unsigned int
 RendererGL::GetUniformLocation(unsigned int shaderID, const char* name)
 {
 	GLuint result = glGetUniformLocation(shaderID, name);
-	switch (result)
+	switch (glGetError())
 	{
 	case GL_INVALID_VALUE:
 #ifdef _DEBUG

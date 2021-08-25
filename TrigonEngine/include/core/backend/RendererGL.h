@@ -3,10 +3,22 @@
 #include "Renderer.h"
 #include "core/TriCore.h"
 
+enum class RenderError
+{
+	ShaderNotLoaded,
+	ShaderNull,
+	MaterialNull,
+	NoCamera
+};
+
 class RendererGL : public Renderer
 {
 private:
 	unsigned int vertexArrayID;
+
+	
+	RenderError error;
+	RenderError lastError;
 
 public:
 
@@ -63,11 +75,11 @@ public:
 	//																	//
 	//////////////////////////////////////////////////////////////////////
 
-	void			ReleaseBuffer	(	unsigned int	bufferID	) override;
+	void			ReleaseBuffer		(	unsigned int	bufferID	) override;
 
-	void			UnbindTexture2D	(	Texture2D*		texture		) override;
+	void			ReleaseTexture2D	(	Texture2D*		texture		) override;
 
-	void			UnbindShader	(	Shader*			shader		) override;
+	void			ReleaseShader		(	Shader*			shader		) override;
 
 
 
@@ -108,8 +120,13 @@ public:
 
 
 
+	//////////////////////////////////////////////////////////////////////
+	//																	//
+	//		Local Fucntions												//
+	//																	//
+	//////////////////////////////////////////////////////////////////////
 
-
+	bool UseShader(Shader* program);
 
 
 

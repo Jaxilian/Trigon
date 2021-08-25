@@ -52,12 +52,12 @@ public:
 	static void LogError(const char* format, ...)
 	{
 #ifdef _DEBUG
-		printf("\n\033[0;31m");
+		printf("\033[0;31m");
 		va_list argptr;
 		va_start(argptr, format);
 		vfprintf(stderr, format, argptr);
 		va_end(argptr);
-		printf("\033[0m");
+		printf("\033[0m\n");
 #endif
 	}
 

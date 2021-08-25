@@ -116,7 +116,7 @@ InspectorPanel::Draw()
 		ImGui::Separator();
 		if (ImGui::CollapsingHeader("No Entity"))
 		{
-			
+
 		}
 	}
 
