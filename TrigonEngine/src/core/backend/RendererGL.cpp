@@ -212,7 +212,7 @@ RendererGL::BindTexture2D(Texture2D* texture)
 
 
 unsigned int	
-RendererGL::BindIndexBuffer(std::vector<int>	indexBuffer)
+RendererGL::BindIndexBuffer(std::vector<unsigned short>	indexBuffer)
 {
 	if (indexBuffer.size() < 1) return -1;
 
@@ -435,7 +435,7 @@ RendererGL::ClearViewport(void)
 void			
 RendererGL::Draw(const	Model* model)
 {
-
+	
 }
 
 

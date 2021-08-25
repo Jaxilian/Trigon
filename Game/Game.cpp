@@ -6,6 +6,19 @@ void
 Game::OnInit()
 {
     Application::OnInit();
+    scene = new Scene("My Scene");
+    Scene::SetActiveScene(scene);
+
+    Entity* camera  = scene->CreateEntity("Camera");
+    camera->AddComponent<TransformComponent>();
+    camera->AddComponent<CameraComponent>();
+
+    Entity* model   = scene->CreateEntity("Model");
+    model->AddComponent<TransformComponent>();
+
+    model->transform->SetPosition(Vector3(0, 0, -2.0f));
+    model->AddComponent<ModelComponent>(ModelManager::LoadModel("assets/Door.fbx"));
+   
 }
 
 
@@ -46,5 +59,6 @@ Game::OnLateUpdate()
 void
 Game::OnQuit()
 {
+    delete scene;
     Application::OnQuit();
 }

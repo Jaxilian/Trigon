@@ -1,8 +1,13 @@
 #ifndef GAME_H
 #define GAME_H
 #include "application/Application.h"
+#include "Trigon.h"
+
 class Game : public Application
 {
+private:
+	Scene* scene;
+
 public:
 
 	void OnInit()			override;

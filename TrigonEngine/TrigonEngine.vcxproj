@@ -80,13 +80,13 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)$(ProjectName)\libs\$(Configuration)\</OutDir>
     <IntDir>intermediate\$(Configuration)\</IntDir>
-    <PublicIncludeDirectories>C:\Project\C++\Trigon\TrigonEngine\dependencies\glm;C:\Project\C++\Trigon\TrigonEngine\dependencies\glad\include;C:\Project\C++\Trigon\TrigonEngine\dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>C:\Project\C++\Trigon\TrigonEngine\dependencies\OpenFBX;C:\Project\C++\Trigon\TrigonEngine\dependencies\Headers;C:\Project\C++\Trigon\TrigonEngine\dependencies\glm;C:\Project\C++\Trigon\TrigonEngine\dependencies\glad\include;C:\Project\C++\Trigon\TrigonEngine\dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)$(ProjectName)\libs\$(Configuration)\</OutDir>
     <IntDir>intermediate\$(Configuration)\</IntDir>
-    <PublicIncludeDirectories>C:\Project\C++\Trigon\TrigonEngine\dependencies\glm;C:\Project\C++\Trigon\TrigonEngine\dependencies\glad\include;C:\Project\C++\Trigon\TrigonEngine\dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>C:\Project\C++\Trigon\TrigonEngine\dependencies\OpenFBX;C:\Project\C++\Trigon\TrigonEngine\dependencies\Headers;C:\Project\C++\Trigon\TrigonEngine\dependencies\glm;C:\Project\C++\Trigon\TrigonEngine\dependencies\glad\include;C:\Project\C++\Trigon\TrigonEngine\dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -124,7 +124,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>C:\Project\C++\Trigon\TrigonEngine\dependencies\glm;C:\Project\C++\Trigon\TrigonEngine\dependencies\glad\include;C:\Project\C++\Trigon\TrigonEngine\dependencies\glfw-3.3.4.bin.WIN64\include;C:\Project\C++\Trigon\TrigonEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Project\C++\Trigon\TrigonEngine\dependencies\OpenFBX;C:\Project\C++\Trigon\TrigonEngine\dependencies\Headers;C:\Project\C++\Trigon\TrigonEngine\dependencies\glm;C:\Project\C++\Trigon\TrigonEngine\dependencies\glad\include;C:\Project\C++\Trigon\TrigonEngine\dependencies\glfw-3.3.4.bin.WIN64\include;C:\Project\C++\Trigon\TrigonEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,7 +147,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>C:\Project\C++\Trigon\TrigonEngine\dependencies\glm;C:\Project\C++\Trigon\TrigonEngine\dependencies\glad\include;C:\Project\C++\Trigon\TrigonEngine\dependencies\glfw-3.3.4.bin.WIN64\include;C:\Project\C++\Trigon\TrigonEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Project\C++\Trigon\TrigonEngine\dependencies\OpenFBX;C:\Project\C++\Trigon\TrigonEngine\dependencies\Headers;C:\Project\C++\Trigon\TrigonEngine\dependencies\glm;C:\Project\C++\Trigon\TrigonEngine\dependencies\glad\include;C:\Project\C++\Trigon\TrigonEngine\dependencies\glfw-3.3.4.bin.WIN64\include;C:\Project\C++\Trigon\TrigonEngine\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -451,7 +451,11 @@
     <ClInclude Include="dependencies\glm\glm\vec3.hpp" />
     <ClInclude Include="dependencies\glm\glm\vec4.hpp" />
     <ClInclude Include="dependencies\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="dependencies\Headers\stb_image.h" />
+    <ClInclude Include="dependencies\OpenFBX\miniz.h" />
+    <ClInclude Include="dependencies\OpenFBX\ofbx.h" />
     <ClInclude Include="include\application\Application.h" />
+    <ClInclude Include="include\core\backend\Camera.h" />
     <ClInclude Include="include\core\backend\Debug.h" />
     <ClInclude Include="include\core\backend\Renderer.h" />
     <ClInclude Include="include\core\backend\RendererGL.h" />
@@ -470,8 +474,13 @@
     <ClInclude Include="include\editor\Editor.h" />
     <ClInclude Include="include\editor\panels\HierarchyPanel.h" />
     <ClInclude Include="include\editor\panels\InspectorPanel.h" />
+    <ClInclude Include="include\engine\components\CameraComponent.h" />
     <ClInclude Include="include\engine\components\Component.h" />
+    <ClInclude Include="include\engine\components\ModelComponent.h" />
+    <ClInclude Include="include\engine\components\TransformComponent.h" />
     <ClInclude Include="include\engine\entities\Entity.h" />
+    <ClInclude Include="include\engine\managers\ModelManager.h" />
+    <ClInclude Include="include\engine\managers\TextureManager.h" />
     <ClInclude Include="include\engine\scenes\Scene.h" />
     <ClInclude Include="include\core\math\Matrix4.h" />
     <ClInclude Include="include\core\math\Vector2.h" />
@@ -482,10 +491,13 @@
     <ClInclude Include="include\core\types\Shader.h" />
     <ClInclude Include="include\core\types\Texture2D.h" />
     <ClInclude Include="include\core\types\TriTypes.h" />
+    <ClInclude Include="include\Trigon.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dependencies\glad\src\gl.c" />
     <ClCompile Include="dependencies\glm\glm\detail\glm.cpp" />
+    <ClCompile Include="dependencies\OpenFBX\miniz.c" />
+    <ClCompile Include="dependencies\OpenFBX\ofbx.cpp" />
     <ClCompile Include="include\editor\backend\imgui.cpp" />
     <ClCompile Include="include\editor\backend\imgui_demo.cpp" />
     <ClCompile Include="include\editor\backend\imgui_draw.cpp" />
@@ -495,6 +507,7 @@
     <ClCompile Include="include\editor\backend\imgui_widgets.cpp" />
     <ClCompile Include="src\application\Application.cpp" />
     <ClCompile Include="src\application\Entry.cpp" />
+    <ClCompile Include="src\core\backend\Camera.cpp" />
     <ClCompile Include="src\core\backend\Renderer.cpp" />
     <ClCompile Include="src\core\backend\RendererGL.cpp" />
     <ClCompile Include="src\core\backend\Time.cpp" />
@@ -510,8 +523,13 @@
     <ClCompile Include="src\editor\Editor.cpp" />
     <ClCompile Include="src\editor\panels\HierarchyPanel.cpp" />
     <ClCompile Include="src\editor\panels\InspectorPanel.cpp" />
+    <ClCompile Include="src\engine\components\CameraComponent.cpp" />
     <ClCompile Include="src\engine\components\Component.cpp" />
+    <ClCompile Include="src\engine\components\ModelComponent.cpp" />
+    <ClCompile Include="src\engine\components\TransformComponent.cpp" />
     <ClCompile Include="src\engine\entities\Entity.cpp" />
+    <ClCompile Include="src\engine\materials\ModelManager.cpp" />
+    <ClCompile Include="src\engine\materials\TextureManager.cpp" />
     <ClCompile Include="src\engine\scenes\Scene.cpp" />
   </ItemGroup>
   <ItemGroup>

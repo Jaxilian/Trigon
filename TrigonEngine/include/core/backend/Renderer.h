@@ -43,11 +43,11 @@ public:
 	//																	//
 	//////////////////////////////////////////////////////////////////////
 
-	virtual unsigned int	BindVertexBuffer	(	std::vector<float>	vertexBuffer					) { return 0; };
+	virtual unsigned int	BindVertexBuffer	(	std::vector<float>			vertexBuffer					) { return 0; };
 
-	virtual unsigned int	BindTexture2D		(	Texture2D*			texture							) { return 0; };
+	virtual unsigned int	BindTexture2D		(	Texture2D*					texture							) { return 0; };
 
-	virtual unsigned int	BindIndexBuffer		(	std::vector<int>	indexBuffer						) { return 0; };
+	virtual unsigned int	BindIndexBuffer		(	std::vector<unsigned short>	indexBuffer						) { return 0; };
 
 	virtual unsigned int	CreateShaderProgram	(	const char* vertexFile, const char* fragmentFile	) { return 0; };
 

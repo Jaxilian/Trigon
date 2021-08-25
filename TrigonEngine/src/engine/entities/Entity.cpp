@@ -9,7 +9,7 @@
 
 #include "engine/components/Component.h"
 #include "engine/entities/Entity.h"
-
+#include "core/backend/Debug.h"
 
 ////////////////////////////// CEntity //////////////////////////////
 //                                                                 //
@@ -22,7 +22,9 @@ Entity::Entity(const char* name)
 {
 	m_Name = name;
 	m_EntityID = "1234"; // <-- Implement ID
-
+#ifdef _DEBUG
+	Debug::LogStatus(DebugColor::Green, DebugType::Create, DebugResult::Success, "Entity: %s", name);
+#endif
 }	// */ // CEntity
 
 
@@ -38,6 +40,9 @@ Entity::~Entity( void )
 		m_Components.at(i)->Unload();
 		delete m_Components.at(i);
 	}
+#ifdef _DEBUG
+	Debug::LogStatus(DebugColor::Green, DebugType::Delete, DebugResult::Success, "Entity: %s", m_Name);
+#endif
 
 }	// */ // ~CEntity
 

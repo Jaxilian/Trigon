@@ -320,6 +320,16 @@
     <ClInclude Include="include\editor\Editor.h" />
     <ClInclude Include="include\editor\panels\InspectorPanel.h" />
     <ClInclude Include="include\editor\panels\HierarchyPanel.h" />
+    <ClInclude Include="include\Trigon.h" />
+    <ClInclude Include="include\engine\components\TransformComponent.h" />
+    <ClInclude Include="include\engine\components\CameraComponent.h" />
+    <ClInclude Include="include\core\backend\Camera.h" />
+    <ClInclude Include="include\engine\components\ModelComponent.h" />
+    <ClInclude Include="include\engine\managers\ModelManager.h" />
+    <ClInclude Include="include\engine\managers\TextureManager.h" />
+    <ClInclude Include="dependencies\Headers\stb_image.h" />
+    <ClInclude Include="dependencies\OpenFBX\miniz.h" />
+    <ClInclude Include="dependencies\OpenFBX\ofbx.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\application\Entry.cpp" />
@@ -351,6 +361,14 @@
     <ClCompile Include="src\editor\Editor.cpp" />
     <ClCompile Include="src\editor\panels\InspectorPanel.cpp" />
     <ClCompile Include="src\editor\panels\HierarchyPanel.cpp" />
+    <ClCompile Include="src\engine\components\TransformComponent.cpp" />
+    <ClCompile Include="src\engine\components\CameraComponent.cpp" />
+    <ClCompile Include="src\core\backend\Camera.cpp" />
+    <ClCompile Include="src\engine\components\ModelComponent.cpp" />
+    <ClCompile Include="src\engine\materials\ModelManager.cpp" />
+    <ClCompile Include="src\engine\materials\TextureManager.cpp" />
+    <ClCompile Include="dependencies\OpenFBX\miniz.c" />
+    <ClCompile Include="dependencies\OpenFBX\ofbx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\glm\glm\gtx\wrap.inl" />

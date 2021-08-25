@@ -18,14 +18,19 @@ private:
 
 public:
 
-	Entity*	CreateEntity	( const char* name	);
+	Entity*		CreateEntity	( const char* name	);
 	void		Update			( void );
+	void		Draw			( void );
 
 //////////////////////////////////////////////////////////////////////////
-	static Scene*					GetCurrentWorld();
-	static void						SetActiveWorld(Scene* world);
+	static Scene*					GetCurrentScene();
+	static void						SetActiveScene(Scene* world);
 
-	Scene();
+	unsigned int					EntityCount();
+	Entity*							GetEntity(int index);
+	const char*						GetName();
+
+	 Scene(const char* name);
 	~Scene();
 
 //////////////////////////////////////////////////////////////////////////

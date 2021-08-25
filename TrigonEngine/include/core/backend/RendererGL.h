@@ -39,11 +39,11 @@ public:
 	//																	//
 	//////////////////////////////////////////////////////////////////////
 
-	unsigned int	BindVertexBuffer	(	std::vector<float>	vertexBuffer	)	override;
+	unsigned int	BindVertexBuffer	(	std::vector<float>			vertexBuffer	)	override;
 
-	unsigned int	BindTexture2D		(	Texture2D*			texture			)	override;
+	unsigned int	BindTexture2D		(	Texture2D*					texture			)	override;
 
-	unsigned int	BindIndexBuffer		(	std::vector<int>	indexBuffer		)	override;
+	unsigned int	BindIndexBuffer		(	std::vector<unsigned short>	indexBuffer		)	override;
 
 
 	unsigned int	CreateShaderProgram	(	const char* vertexFile,	 const char* fragmentFile)	override;

@@ -2,6 +2,7 @@
 #include "core/backend/WindowManager.h"
 #include "core/backend/RendererGL.h"
 #include "core/backend/Time.h"
+#include "engine/scenes/Scene.h"
 
 Application::Application()
 {
@@ -48,12 +49,19 @@ Application::OnEarlyUpdate()
 void
 Application::OnUpdate()
 {
+	if (Scene::GetCurrentScene())
+	{
+		Scene::GetCurrentScene()->Update();
+	}
 }
 
 void
 Application::OnLateUpdate()
 {
-
+	if (Scene::GetCurrentScene()) 
+	{
+		Scene::GetCurrentScene()->Draw();
+	}
 
 	m_pEditor->Draw();
 

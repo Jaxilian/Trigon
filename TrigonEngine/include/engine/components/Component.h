@@ -14,7 +14,6 @@ class Entity;
 class Component
 {
 public:
-
 	//////////////////////////////////////////////////////////////////////////
 
 	friend class Entity;
@@ -40,7 +39,7 @@ public:
 
 protected:
 
-	Entity*	m_pEntity;
+	Entity*		m_pEntity;
 	const char* m_pName;
 };
 #endif // !IComponent_H

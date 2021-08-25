@@ -17,6 +17,16 @@ class TransformComponent;
 
 class Entity
 {
+private:
+
+	void	AddComponentInternal(Component* pComponent);
+
+	//////////////////////////////////////////////////////////////////////////
+
+	std::vector< Component* >	m_Components;
+	const char*					m_EntityID;
+	const char*					m_Name;
+
 public:
 
 	//////////////////////////////////////////////////////////////////////////
@@ -60,15 +70,6 @@ public:
 
 	//////////////////////////////////////////////////////////////////////////
 
-private:
-
-	void	AddComponentInternal(Component* pComponent);
-
-	//////////////////////////////////////////////////////////////////////////
-
-	std::vector< Component* >	m_Components;
-	const char* m_EntityID;
-	const char* m_Name;
 };
 
 #endif // !CEntity_H
