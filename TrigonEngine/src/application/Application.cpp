@@ -74,7 +74,7 @@ Application::OnLateUpdate()
 void
 Application::OnQuit()
 {
-	Debug::Log("\nQuitting\n");
+	Debug::Log("\nOn Quit\n");
 
 	delete m_pEditor;
 	m_pRenderer->ReleaseInstance();

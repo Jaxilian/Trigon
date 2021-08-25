@@ -3,11 +3,11 @@
 #include "core/backend/Debug.h"
 #include "engine/components/ModelComponent.h"
 
-Scene* Scene::m_pCurrentWorld = nullptr;
+Scene* Scene::m_pCurrentScene = nullptr;
 
 Scene* Scene::GetCurrentScene() 
 {
-	return m_pCurrentWorld;
+	return m_pCurrentScene;
 }
 
 
@@ -35,11 +35,23 @@ Scene::~Scene()
 #endif
 }
 
+void							
+Scene::SetDirectionLightSource(DirectionLightComponent* component) 
+{
+	m_DirectionalLight = component;
+}
+
+DirectionLightComponent*
+Scene::GetDirectionalLight()
+{
+	return m_DirectionalLight;
+}
+
 void
 Scene::SetActiveScene(Scene* world)
 {
-	if (m_pCurrentWorld) delete m_pCurrentWorld;
-	m_pCurrentWorld = world;
+	if (m_pCurrentScene) delete m_pCurrentScene;
+	m_pCurrentScene = world;
 }
 
 

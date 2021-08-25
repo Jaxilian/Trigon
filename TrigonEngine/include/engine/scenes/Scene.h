@@ -5,13 +5,14 @@
 
 class		Entity;
 class		Component;
+class		DirectionLightComponent;
 
 class Scene
 {
 private:
-	static	Scene*					m_pCurrentWorld;
+	static	Scene*					m_pCurrentScene;
 	const	char*					m_Name;
-
+	DirectionLightComponent*		m_DirectionalLight;
 	std::vector<Entity*>*			m_pEntities		= nullptr;
 
 //////////////////////////////////////////////////////////////////////////
@@ -25,9 +26,11 @@ public:
 //////////////////////////////////////////////////////////////////////////
 	static Scene*					GetCurrentScene();
 	static void						SetActiveScene(Scene* world);
+	void							SetDirectionLightSource(DirectionLightComponent* component);
 
 	unsigned int					EntityCount();
 	Entity*							GetEntity(int index);
+	DirectionLightComponent*		GetDirectionalLight();
 	const char*						GetName();
 
 	 Scene(const char* name);

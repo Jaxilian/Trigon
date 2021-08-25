@@ -330,6 +330,7 @@
     <ClInclude Include="dependencies\Headers\stb_image.h" />
     <ClInclude Include="dependencies\OpenFBX\miniz.h" />
     <ClInclude Include="dependencies\OpenFBX\ofbx.h" />
+    <ClInclude Include="include\engine\components\DirectionLightComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\application\Entry.cpp" />
@@ -369,6 +370,7 @@
     <ClCompile Include="src\engine\materials\TextureManager.cpp" />
     <ClCompile Include="dependencies\OpenFBX\miniz.c" />
     <ClCompile Include="dependencies\OpenFBX\ofbx.cpp" />
+    <ClCompile Include="src\engine\components\DirectionLightComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\glm\glm\gtx\wrap.inl" />
