@@ -47,7 +47,6 @@ See the [Trello Board](https://trello.com/b/97EPGds5/trigon) for a list of propo
 
 
 ## Architecture Philosophy
-<img src="https://github.com/Jaxilian/Trigon/blob/main/FlowChart.png" alt="FlowChart" width="794" height="794">
 
 <!-- CONTRIBUTING -->
 ## Contributing
