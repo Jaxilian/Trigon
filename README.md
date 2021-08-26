@@ -4,7 +4,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="https://github.com/Jaxilian/Trigon/blob/main/Trigon_transp.png" alt="Logo" width="1024" height="1024">
+    <img src="https://github.com/Jaxilian/Trigon/blob/main/Trigon_transp.png" alt="Logo" width="512" height="512">
     <br>
     <a href="https://www.adamandersson.com/">Logo credits</a>
   </a>
