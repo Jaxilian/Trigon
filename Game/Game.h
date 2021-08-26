@@ -7,6 +7,8 @@ class Game : public Application
 {
 private:
 	Scene* scene;
+	Entity* camera;
+	Entity* model;
 
 public:
 

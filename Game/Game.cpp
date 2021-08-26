@@ -10,11 +10,11 @@ Game::OnInit()
     scene = new Scene("My Scene");
     Scene::SetActiveScene(scene);
 
-    Entity* camera  = scene->CreateEntity("Camera");
+    camera  = scene->CreateEntity("Camera");
     camera->AddComponent<TransformComponent>();
     camera->AddComponent<CameraComponent>();
 
-    Entity* model   = scene->CreateEntity("Model");
+    model   = scene->CreateEntity("Model");
     model->AddComponent<TransformComponent>();
 
     model->transform->SetPosition(Vector3(0, 0, -2.0f));
@@ -50,6 +50,28 @@ Game::OnEarlyUpdate()
 void
 Game::OnUpdate()
 {
+
+    if (Input::GetKey(KeyCode::W)) camera->transform->Translate(camera->transform->GetMatrix().forward * 0.5f    * Time::deltaTime);
+    if (Input::GetKey(KeyCode::S)) camera->transform->Translate(camera->transform->GetMatrix().forward * -0.5f   * Time::deltaTime);
+    if (Input::GetKey(KeyCode::A)) camera->transform->Translate(camera->transform->GetMatrix().right * 0.5f      * Time::deltaTime);
+    if (Input::GetKey(KeyCode::D)) camera->transform->Translate(camera->transform->GetMatrix().right * -0.5f     * Time::deltaTime);
+    if (Input::GetKey(KeyCode::E)) camera->transform->Rotate(Vector3(0.0f, 1.0f * Time::deltaTime, 0.0f));
+    if (Input::GetKey(KeyCode::Q)) camera->transform->Rotate(Vector3(0.0f, -1.0f * Time::deltaTime, 0.0f));
+
+
+
+    if (Input::GetKey(KeyCode::ESCAPE)) Quit();
+
+
+    if (Input::GetKey(KeyCode::SPACE))
+    {
+        camera->transform->Translate(camera->transform->GetMatrix().up * 0.5f * Time::deltaTime);
+    }
+
+    if (Input::GetKey(KeyCode::LEFT_CONTROL))
+    {
+        camera->transform->Translate(camera->transform->GetMatrix().up * -0.5f * Time::deltaTime);
+    }
     Application::OnUpdate();
 }
 

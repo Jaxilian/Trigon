@@ -11,4 +11,6 @@
 #include "engine/components/TransformComponent.h"
 #include "engine/components/ModelComponent.h"
 #include "engine/materials/DefaultMaterial.h"
+#include "core/backend/Input.h"
+#include "core/backend/Time.h"
 #endif // !TRIGON_H

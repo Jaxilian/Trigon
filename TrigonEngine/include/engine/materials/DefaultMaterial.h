@@ -6,7 +6,13 @@
 class DefaultMaterial : public Material
 {
 public:
-	Texture2D* texture;
+	Vector3*	lightDir;
+
+	Texture2D*	albedo;
+	Texture2D*	normal;
+	Texture2D*	metallic;
+	Texture2D*  roughness;
+	Texture2D*	ambientOcclusion;
 
 	DefaultMaterial();
 

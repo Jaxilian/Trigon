@@ -454,6 +454,7 @@
     <ClInclude Include="dependencies\Headers\stb_image.h" />
     <ClInclude Include="dependencies\OpenFBX\miniz.h" />
     <ClInclude Include="dependencies\OpenFBX\ofbx.h" />
+    <ClInclude Include="include\core\backend\Input.h" />
     <ClInclude Include="include\engine\components\DirectionLightComponent.h" />
     <ClInclude Include="include\application\Application.h" />
     <ClInclude Include="include\core\backend\Camera.h" />
@@ -500,6 +501,7 @@
     <ClCompile Include="dependencies\glm\glm\detail\glm.cpp" />
     <ClCompile Include="dependencies\OpenFBX\miniz.c" />
     <ClCompile Include="dependencies\OpenFBX\ofbx.cpp" />
+    <ClCompile Include="src\core\backend\Input.cpp" />
     <ClCompile Include="src\engine\components\DirectionLightComponent.cpp" />
     <ClCompile Include="include\editor\backend\imgui.cpp" />
     <ClCompile Include="include\editor\backend\imgui_demo.cpp" />

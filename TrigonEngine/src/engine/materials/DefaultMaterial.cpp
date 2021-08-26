@@ -5,8 +5,8 @@ DefaultMaterial::DefaultMaterial()
 	shader = new Shader("assets/shaders/defaultVertex.glsl", "assets/shaders/defaultPixel.glsl");
 	CreateUniformMatices();
 
-	texture = TextureManager::CreateTexture("assets/GridTex.png");
-	shader->AddUniformTex2D("textureSampler", texture);
+	albedo = TextureManager::CreateTexture("assets/Speedprop_Door_BaseColor.tga");
+	shader->AddUniformTex2D("textureSampler", albedo);
 }
 
 

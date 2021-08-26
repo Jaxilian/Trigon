@@ -1,6 +1,6 @@
 #ifndef TRICORE_H
 #define TRICORE_H
-enum class KeyCode
+enum KeyCode
 {
 	KEY_0 = 48, KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9,
 	A = 65, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z,
