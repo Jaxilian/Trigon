@@ -63,7 +63,9 @@ Application::OnLateUpdate()
 		Scene::GetCurrentScene()->Draw();
 	}
 
+	m_pEditor->BeginDraw();
 	m_pEditor->Draw();
+	m_pEditor->EndDraw();
 
 	glfwSwapBuffers(WindowManager::GetInstance()->window);
 	glfwPollEvents();

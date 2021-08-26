@@ -14,7 +14,9 @@ public:
 	 Editor();
 	~Editor();
 
+	void BeginDraw();
 	void Draw();
+	void EndDraw();
 };
 
 #endif // !EDITOR_H

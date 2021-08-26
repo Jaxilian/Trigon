@@ -30,22 +30,34 @@ Editor::Editor()
 }
 
 void
-Editor::Draw() 
+Editor::BeginDraw()
 {
-    // Init draw
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
+}
 
+void
+Editor::Draw() 
+{
+    // Init draw
+ 
     //Fetch everything to draw
     inspector.Draw();
     hierarchy.Draw();
 
     // Do Draw
+    
+
+
+}
+
+void
+Editor::EndDraw()
+{
     ImGui::Render();
-
-
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+    ImGui::EndFrame;
 }
 
 Editor::~Editor()
