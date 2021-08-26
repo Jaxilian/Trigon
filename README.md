@@ -33,6 +33,8 @@ Trigon - Game Engine, was created in 2021 by me as a protfolio project to use in
 
 Trigon supports OpenGL 4.6 and in the future vulkan as well. 
 
+<img src="https://github.com/Jaxilian/Trigon/blob/main/Sk21.png" alt="EditorPreview" width="823" height="637">
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
