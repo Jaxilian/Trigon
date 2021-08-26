@@ -46,6 +46,8 @@ This section will be expanded when the documentation is done.
 See the [Trello Board](https://trello.com/b/97EPGds5/trigon) for a list of proposed features (and known issues).
 
 
+## Architecture Philosophy
+<img src="https://github.com/Jaxilian/Trigon/blob/main/FlowChart.png" alt="FlowChart" width="794" height="794">
 
 <!-- CONTRIBUTING -->
 ## Contributing
