@@ -331,6 +331,7 @@
     <ClInclude Include="dependencies\OpenFBX\miniz.h" />
     <ClInclude Include="dependencies\OpenFBX\ofbx.h" />
     <ClInclude Include="include\engine\components\DirectionLightComponent.h" />
+    <ClInclude Include="include\engine\materials\DefaultMaterial.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\application\Entry.cpp" />
@@ -366,11 +367,12 @@
     <ClCompile Include="src\engine\components\CameraComponent.cpp" />
     <ClCompile Include="src\core\backend\Camera.cpp" />
     <ClCompile Include="src\engine\components\ModelComponent.cpp" />
-    <ClCompile Include="src\engine\materials\ModelManager.cpp" />
-    <ClCompile Include="src\engine\materials\TextureManager.cpp" />
+    <ClCompile Include="src\engine\managers\ModelManager.cpp" />
+    <ClCompile Include="src\engine\managers\TextureManager.cpp" />
     <ClCompile Include="dependencies\OpenFBX\miniz.c" />
     <ClCompile Include="dependencies\OpenFBX\ofbx.cpp" />
     <ClCompile Include="src\engine\components\DirectionLightComponent.cpp" />
+    <ClCompile Include="src\engine\materials\DefaultMaterial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\glm\glm\gtx\wrap.inl" />

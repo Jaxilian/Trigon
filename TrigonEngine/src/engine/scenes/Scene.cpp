@@ -2,6 +2,9 @@
 #include "engine/entities/Entity.h"
 #include "core/backend/Debug.h"
 #include "engine/components/ModelComponent.h"
+#include "engine/materials/DefaultMaterial.h"
+#include "engine/components/TransformComponent.h"
+#include "engine/components/CameraComponent.h"
 
 Scene* Scene::m_pCurrentScene = nullptr;
 
@@ -84,8 +87,15 @@ Scene::Draw()
 		if (pEntity->Enabled) 
 		{
 			ModelComponent*		pComponent	= const_cast<ModelComponent*>(pEntity->GetComponent<ModelComponent>());
-			if (pComponent)
+			if (pComponent && CameraComponent::activeCamera)
 			{
+				pComponent->model->material->UpdateMatrices
+				(
+					&pComponent->GetParent()->transform->GetMatrix(),
+					&CameraComponent::activeCamera->camera->transform,
+					&CameraComponent::activeCamera->camera->projection
+				);
+
 				pComponent->Draw();
 			}
 		}

@@ -109,17 +109,8 @@ public:
 
 
 
-	//////////////////////////////////////////////////////////////////////
-	//																	//
-	//		Set Uniforms												//
-	//																	//
-	//////////////////////////////////////////////////////////////////////
 
-	virtual void SetUniformFloat ( const char* name, float*		value	)	{};
-
-	virtual void SetUniformMat4f ( const char* name, Matrix4*	value	)	{};
-
-	virtual void SetUniformTex2D ( const char* name, Texture2D* value	)	{};
+	
 };
 
 #endif // !RENDERER

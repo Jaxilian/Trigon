@@ -10,4 +10,5 @@
 #include "engine/components/CameraComponent.h"
 #include "engine/components/TransformComponent.h"
 #include "engine/components/ModelComponent.h"
+#include "engine/materials/DefaultMaterial.h"
 #endif // !TRIGON_H

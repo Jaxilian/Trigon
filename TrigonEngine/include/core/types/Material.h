@@ -8,15 +8,14 @@ friend Renderer;
 public:
 	Shader* shader = nullptr;
 
-	Material() 
-	{
-
-	}
+	Material();
 
 	Material(Shader* assignedShader) 
 	{
 		shader = assignedShader;
 	}
+	void CreateUniformMatices();
+	void UpdateMatrices(Matrix4* model, Matrix4* camera, Matrix4* projection);
 };
 #endif // !MATERIAL_H
 

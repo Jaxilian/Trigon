@@ -3,6 +3,7 @@
 #include <fstream>
 #include "engine/components/CameraComponent.h"
 #include "engine/scenes/Scene.h"
+#include "core/math/Matrix4.h"
 
 //////////////////////////////////////////////////////////////////////
 //																	//
@@ -38,8 +39,6 @@ MessageCallback(GLenum source,
 void
 RendererGL::CreateInstance	(	void	)
 {
-
-
 
 	Renderer::SetInstance(this);
 
@@ -477,18 +476,31 @@ RendererGL::Draw(const	Model* model)
 	
 	if (!UseShader(model->material->shader)) return;
 
+	// Assign all matrices to shader
+	std::vector<UniformMat4f>* matrices = &model->material->shader->uniformMat4fs;
 
-	// Fetch Camera
-
-	CameraComponent* camera = CameraComponent::activeCamera;
-
-	if (!camera)
+	for (int i = 0; i < matrices->size(); i++)
 	{
-		error = RenderError::NoCamera;
-		if (error != lastError) Debug::LogError("No camera exist in scene %s!", Scene::GetCurrentScene()->GetName());
-		lastError = error;
-		return;
+		glUniformMatrix4fv(matrices->at(i).location, 1, GL_FALSE, &matrices->at(i).value->data[0][0]);
 	}
+
+	// Assign all textures to shader
+
+	std::vector<UniformTex2D>*textures = &model->material->shader->uniformTex2Ds;
+
+	//////////////////////////////////////////////////
+	// Pass all textures to shader
+	if (textures->size() > 0)
+	{
+		// For texture
+
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, textures->at(0).value->location);
+
+		glUniform1i(textures->at(0).location, 0);
+
+	}
+
 	
 	for (int i = 0; i < model->meshes.size(); i++)
 	{
@@ -582,8 +594,6 @@ RendererGL::GetUniformLocation(unsigned int shaderID, const char* name)
 
 
 
-
-
 //////////////////////////////////////////////////////////////////////
 //																	//
 //		Relase Instance												//
@@ -598,3 +608,5 @@ RendererGL::ReleaseInstance(void)
 	Debug::LogStatus(DebugColor::Green, DebugType::Delete, DebugResult::Success, "Renderer Instance");
 #endif
 }
+
+

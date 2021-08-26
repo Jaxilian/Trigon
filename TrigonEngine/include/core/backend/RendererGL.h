@@ -131,8 +131,6 @@ public:
 
 
 
-
-
 };
 
 #endif // !RENDERER_GL

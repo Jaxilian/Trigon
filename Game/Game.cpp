@@ -2,6 +2,7 @@
 
 
 
+
 void
 Game::OnInit()
 {
@@ -18,7 +19,7 @@ Game::OnInit()
 
     model->transform->SetPosition(Vector3(0, 0, -2.0f));
     Model* modelObj = ModelManager::LoadModel("assets/Door.fbx");
-    modelObj->material = new Material();
+    modelObj->material = new DefaultMaterial();
     model->AddComponent<ModelComponent>(modelObj);
     
    

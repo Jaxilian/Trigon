@@ -5,17 +5,17 @@
 #include <glm/mat4x4.hpp>
 #include "Vector3.h"
 
-class Renderer;
+class RendererGL;
 
 class Matrix4
 {
-friend Renderer;
+friend RendererGL;
 private:
-	glm::mat4 data = glm::mat4(1.0f);
-	glm::mat4 translationMat;
-	glm::mat4 orientationMat;
-	glm::mat4 scaleMat;
-	Vector3 degrees;
+	glm::mat4	data = glm::mat4(1.0f);
+	glm::mat4	translationMat;
+	glm::mat4	orientationMat;
+	glm::mat4	scaleMat;
+	Vector3		degrees;
 
 public:
 	Vector3 position;

@@ -482,6 +482,7 @@
     <ClInclude Include="include\engine\entities\Entity.h" />
     <ClInclude Include="include\engine\managers\ModelManager.h" />
     <ClInclude Include="include\engine\managers\TextureManager.h" />
+    <ClInclude Include="include\engine\materials\DefaultMaterial.h" />
     <ClInclude Include="include\engine\scenes\Scene.h" />
     <ClInclude Include="include\core\math\Matrix4.h" />
     <ClInclude Include="include\core\math\Vector2.h" />
@@ -530,8 +531,9 @@
     <ClCompile Include="src\engine\components\ModelComponent.cpp" />
     <ClCompile Include="src\engine\components\TransformComponent.cpp" />
     <ClCompile Include="src\engine\entities\Entity.cpp" />
-    <ClCompile Include="src\engine\materials\ModelManager.cpp" />
-    <ClCompile Include="src\engine\materials\TextureManager.cpp" />
+    <ClCompile Include="src\engine\materials\DefaultMaterial.cpp" />
+    <ClCompile Include="src\engine\managers\ModelManager.cpp" />
+    <ClCompile Include="src\engine\managers\TextureManager.cpp" />
     <ClCompile Include="src\engine\scenes\Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
