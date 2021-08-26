@@ -8,7 +8,7 @@ bool  Input::lockCursor;
 bool 
 Input::GetKey(KeyCode keycode)
 {
-	if (glfwGetKey(WindowManager::GetInstance()->window, keycode)) return true;
+	if (glfwGetKey(WindowManager::GetInstance()->window, (int)keycode)) return true;
 	return false;
 }
 

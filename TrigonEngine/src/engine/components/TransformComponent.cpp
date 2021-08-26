@@ -1,7 +1,11 @@
 #include "engine/components/TransformComponent.h"
 #include "engine/entities/Entity.h"
 #include "core/backend/Debug.h"
-
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtx/transform.hpp>
+#include <glm/gtx/matrix_decompose.hpp>
+#include <glm/gtx/euler_angles.hpp>
+#include "core/math/Vector3.h"
 
 //////////////////////// TransformComponent ////////////////////////////
 //                                                                    //
@@ -10,7 +14,9 @@
 //*/////////////////////////////////////////////////////////////////////
 TransformComponent::TransformComponent(void)
 {
-	
+	storedScale = Vector3(1, 1, 1);
+	storedPos = Vector3(0, 0, 0);
+	storedRot = Vector3(0, 0, 0);
 }	// */ // IComponent
 
 
@@ -33,7 +39,7 @@ TransformComponent::~TransformComponent(void)
 void
 TransformComponent::Load(void)
 {
-	matrix = new Matrix4();
+	data = glm::mat4(1.0f);
 
 	if (m_pEntity->transform != nullptr)
 	{
@@ -53,7 +59,7 @@ TransformComponent::Load(void)
 void
 TransformComponent::Unload(void)
 {
-	delete matrix;
+
 }	// */ // Unload
 
 
@@ -77,7 +83,12 @@ TransformComponent::Update(void)
 Vector3
 TransformComponent::GetPosition(void)
 {
-	return matrix->position;
+	glm::mat4 transposed = glm::transpose(data);
+	Vector3 pos;
+	pos.x = transposed[3][0];
+	pos.y = transposed[3][1];
+	pos.z = transposed[3][2];
+	return pos;
 }	// */ // Update
 
 ////////////////////////////// Get Pos //////////////////////////////
@@ -88,7 +99,12 @@ TransformComponent::GetPosition(void)
 Vector3
 TransformComponent::GetScale(void)
 {
-	return matrix->scale;
+	glm::mat4 transposed = glm::transpose(data);
+	Vector3 scale;
+	scale.x = transposed[0][0];
+	scale.y = transposed[1][1];
+	scale.z = transposed[2][2];
+	return scale;
 }	// */ // Update
 
 /////////////////////////// Get Matrix /////////////////////////////
@@ -96,10 +112,10 @@ TransformComponent::GetScale(void)
 //  Info:
 //                                                                //
 //*/////////////////////////////////////////////////////////////////
-Matrix4&
+glm::mat4&
 TransformComponent::GetMatrix(void)
 {
-	return *matrix;
+	return data;
 }	// */ // Update
 
 
@@ -112,7 +128,7 @@ TransformComponent::GetMatrix(void)
 void
 TransformComponent::Scale(Vector3 value)
 {
-
+	storedScale += value;
 }
 
 ///////////////////////////	 Translate //////////////////////////////
@@ -124,7 +140,7 @@ TransformComponent::Scale(Vector3 value)
 void
 TransformComponent::Translate(Vector3 position)
 {
-	matrix->Translate(position);
+	storedPos += position;
 }
 
 ////////////////////////////  Look  ////////////////////////////////
@@ -136,7 +152,11 @@ TransformComponent::Translate(Vector3 position)
 void
 TransformComponent::LookAt(Vector3 target, Vector3 up)
 {
-	matrix->LookAt(target, up);
+	data = glm::lookAt(storedPos.data, target.data, up.data);
+
+	glm::mat4 transposed = glm::transpose(data);
+
+
 }
 
 ///////////////////////////  Apply  ////////////////////////////////

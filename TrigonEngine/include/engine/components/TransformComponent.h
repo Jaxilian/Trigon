@@ -6,7 +6,10 @@
 class TransformComponent : public Component
 {
 private:
-	Matrix4*	matrix;
+	glm::mat4x4	data;
+	Vector3 storedScale;
+	Vector3 storedPos;
+	Vector3 storedRot;
 
 public:
 	// Constructor / Destructor
@@ -25,16 +28,16 @@ public:
 
 	Vector3		GetPosition();
 	Vector3		GetScale();
-	Matrix4&	GetMatrix();
+	glm::mat4&	GetMatrix();
 
 	/////////////////////////////////////////////////////////////////////////
 
-	void Scale(Vector3 value);
-	void Translate(Vector3 position);
-	void LookAt(Vector3 target, Vector3 up);
-	void Rotate(Vector3 angles);
-	void SetRotation(Vector3 orientation);
-	void SetPosition(Vector3 pos);
+	void		Scale(Vector3 value);
+	void		Translate(Vector3 position);
+	void		LookAt(Vector3 target, Vector3 up);
+	void		Rotate(Vector3 angles);
+	void		SetRotation(Vector3 orientation);
+	void		SetPosition(Vector3 pos);
 	void		ApplyChanges();
 
 };

@@ -452,7 +452,109 @@ RendererGL::UseShader(Shader* program)
 	}
 }
 
+void 
+RendererGL::UseTextures(Shader* shader)
+{
 
+	std::vector<UniformTex2D>* textures = &shader->uniformTex2Ds;
+
+	int imagesOverExtended = 0;
+
+	for (int i = 0; i < textures->size(); i++)
+	{
+		switch (i)
+		{
+		case(0):
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_2D, textures->at(i).value->location);
+
+			glUniform1i(textures->at(i).location, i);
+			break;
+		case(1):
+			glActiveTexture(GL_TEXTURE1);
+			glBindTexture(GL_TEXTURE_2D, textures->at(i).value->location);
+
+			glUniform1i(textures->at(i).location, i);
+			break;
+		case(2):
+			glActiveTexture(GL_TEXTURE2);
+			glBindTexture(GL_TEXTURE_2D, textures->at(i).value->location);
+
+			glUniform1i(textures->at(i).location, i);
+			break;
+		case(3):
+			glActiveTexture(GL_TEXTURE3);
+			glBindTexture(GL_TEXTURE_2D, textures->at(i).value->location);
+
+			glUniform1i(textures->at(i).location, i);
+			break;
+		case(4):
+			glActiveTexture(GL_TEXTURE4);
+			glBindTexture(GL_TEXTURE_2D, textures->at(i).value->location);
+
+			glUniform1i(textures->at(i).location, i);
+			break;
+		case(5):
+			glActiveTexture(GL_TEXTURE5);
+			glBindTexture(GL_TEXTURE_2D, textures->at(i).value->location);
+
+			glUniform1i(textures->at(i).location, i);
+			break;
+		case(6):
+			glActiveTexture(GL_TEXTURE6);
+			glBindTexture(GL_TEXTURE_2D, textures->at(i).value->location);
+
+			glUniform1i(textures->at(i).location, i);
+			break;
+		case(7):
+			glActiveTexture(GL_TEXTURE7);
+			glBindTexture(GL_TEXTURE_2D, textures->at(i).value->location);
+
+			glUniform1i(textures->at(i).location, i);
+			break;
+		case(8):
+			glActiveTexture(GL_TEXTURE8);
+			glBindTexture(GL_TEXTURE_2D, textures->at(i).value->location);
+
+			glUniform1i(textures->at(i).location, i);
+			break;
+		default:
+			imagesOverExtended++;
+			break;
+		}
+
+		if (imagesOverExtended > 0)
+		{
+			Debug::LogError("Shader loaded %d to many textures!");
+		}
+
+	}
+
+}
+
+
+void 
+RendererGL::UseMatrices(Shader* shader)
+{
+	// Assign all matrices to shader
+	std::vector<UniformMat4f>* matrices = &shader->uniformMat4fs;
+
+	for (int i = 0; i < matrices->size(); i++)
+	{
+		glUniformMatrix4fv(matrices->at(i).location, 1, GL_FALSE, &matrices->at(i).value->data[0][0]);
+	}
+}
+
+void
+RendererGL::UseVector3s(Shader* shader)
+{
+	std::vector<UniformVec3f>* vectors = &shader->uniformVec3fs;
+
+	for (int i = 0; i < vectors->size(); i++)
+	{
+		glUniform3fv(vectors->at(i).location, 1, &vectors->at(i).value->data[0]);
+	}
+}
 
 
 //////////////////////////////////////////////////////////////////////
@@ -476,30 +578,12 @@ RendererGL::Draw(const	Model* model)
 	
 	if (!UseShader(model->material->shader)) return;
 
-	// Assign all matrices to shader
-	std::vector<UniformMat4f>* matrices = &model->material->shader->uniformMat4fs;
 
-	for (int i = 0; i < matrices->size(); i++)
-	{
-		glUniformMatrix4fv(matrices->at(i).location, 1, GL_FALSE, &matrices->at(i).value->data[0][0]);
-	}
+	UseMatrices(model->material->shader);
 
-	// Assign all textures to shader
+	UseTextures(model->material->shader);
 
-	std::vector<UniformTex2D>*textures = &model->material->shader->uniformTex2Ds;
-
-	//////////////////////////////////////////////////
-	// Pass all textures to shader
-	if (textures->size() > 0)
-	{
-		// For texture
-
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, textures->at(0).value->location);
-
-		glUniform1i(textures->at(0).location, 0);
-
-	}
+	UseVector3s(model->material->shader);
 
 	
 	for (int i = 0; i < model->meshes.size(); i++)

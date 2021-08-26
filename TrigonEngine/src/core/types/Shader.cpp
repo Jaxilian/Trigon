@@ -78,3 +78,27 @@ Shader::SetUniformMat4f(const char* name, Matrix4* value)
 	}
 }
 
+void 
+Shader::AddUniformVec3f(const char* name, Vector3* value)
+{
+	UniformVec3f uniVec3f;
+
+	uniVec3f.name = name;
+	uniVec3f.value = value;
+	uniVec3f.location = Renderer::GetInstance()->GetUniformLocation(programID, name);
+
+	uniformVec3fs.push_back(uniVec3f);
+}
+
+void 
+Shader::SetUniformVec3f(const char* name, Vector3* value)
+{
+	for (int i = 0; i < uniformVec3fs.size(); i++)
+	{
+		if (strcmp(uniformVec3fs[i].name, name) == 0)
+		{
+			uniformVec3fs[i].value = value;
+			return;
+		}
+	}
+}

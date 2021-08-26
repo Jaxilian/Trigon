@@ -1,8 +1,9 @@
-#include "Engine/Managers/TextureManager.h"
+#include "engine/managers/TextureManager.h"
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include "core/TriCore.h"
 #include "core/backend/Renderer.h"
+
 
 Texture2D* TextureManager::CreateTexture(const char* path) 
 {

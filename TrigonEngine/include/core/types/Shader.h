@@ -20,7 +20,7 @@ struct UniformInt
 	const char* name;
 	int* value;
 };
-struct UniformV3f
+struct UniformVec3f
 {
 	unsigned int	location = -1;
 	const char* name;
@@ -50,6 +50,7 @@ private:
 	std::vector<UniformInt>		uniformInts;
 	std::vector<UniformMat4f>	uniformMat4fs;
 	std::vector<UniformTex2D>	uniformTex2Ds;
+	std::vector< UniformVec3f>	uniformVec3fs;
 
 
 public:
@@ -73,6 +74,10 @@ public:
 
 	void
 		SetUniformMat4f(const char* name, Matrix4* value);
+
+	void AddUniformVec3f(const char* name, Vector3* value);
+
+	void SetUniformVec3f(const char* name, Vector3* value);
 
 };
 

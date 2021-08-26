@@ -2,10 +2,13 @@
 #define VECTOR3_H
 
 #include "glm/vec3.hpp"
-
+class RendererGL;
+class TransformComponent;
 class Vector3
 {
 private:
+	friend RendererGL;
+	friend TransformComponent;
 	glm::vec3 data = glm::vec3(0.0f);
 
 public:

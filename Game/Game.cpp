@@ -17,9 +17,11 @@ Game::OnInit()
     model   = scene->CreateEntity("Model");
     model->AddComponent<TransformComponent>();
 
-    model->transform->SetPosition(Vector3(0, 0, -2.0f));
+    model->transform->Rotate(Vector3(-90, 0, 0));
+    model->transform->SetPosition(Vector3(0, 3, 0.0f));
     Model* modelObj = ModelManager::LoadModel("assets/Door.fbx");
     modelObj->material = new DefaultMaterial();
+    modelObj->material->shader->AddUniformVec3f("camPos", & camera->transform->GetMatrix().position);
     model->AddComponent<ModelComponent>(modelObj);
     
    
@@ -72,6 +74,7 @@ Game::OnUpdate()
     {
         camera->transform->Translate(camera->transform->GetMatrix().up * -0.5f * Time::deltaTime);
     }
+    camera->transform->ApplyChanges();
     Application::OnUpdate();
 }
 

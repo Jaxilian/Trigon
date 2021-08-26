@@ -7,6 +7,7 @@ class DefaultMaterial : public Material
 {
 public:
 	Vector3*	lightDir;
+	Vector3*	cameraPos;
 
 	Texture2D*	albedo;
 	Texture2D*	normal;
