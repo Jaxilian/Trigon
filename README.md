@@ -37,6 +37,11 @@ Trigon supports OpenGL 4.6 and in the future vulkan as well.
 
 
 <!-- GETTING STARTED -->
+## Status
+Currently broken - why?, because of me rebuilding the foundation and replacing glm to my custom math library
+
+
+<!-- GETTING STARTED -->
 ## Getting Started
 
 This section will be expanded when the documentation is done.
