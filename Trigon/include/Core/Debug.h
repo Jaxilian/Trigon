@@ -19,7 +19,11 @@ enum class DebugColor
 enum class DebugType
 {
 	None,
+	Pick,
 	Create,
+	Destroy,
+	Release,
+	Bind,
 	Delete,
 	Remove,
 	Compile,
@@ -52,30 +56,34 @@ public:
 	static void LogError(const char* format, ...)
 	{
 #ifdef _DEBUG
-		printf("\n\033[0;31m");
+		printf("\033[0;31m");
 		va_list argptr;
 		va_start(argptr, format);
 		vfprintf(stderr, format, argptr);
 		va_end(argptr);
-		printf("\033[0m");
+		printf("\033[0m\n");
 #endif
 	}
 
 	//Prints out the context followed by result in specific color
-	static void LogStatus(DebugColor color, DebugType type, DebugResult result, const char* name, ...)
+	static void LogStatus(DebugType type, DebugResult result, DebugColor color, const char* name, ...)
 	{
 #ifdef _DEBUG
 		int length = 0;
 
 		switch (type)
 		{
-		case DebugType::None:									break;
+		case DebugType::None:											break;
 		case DebugType::Create:		printf("Create  "); length += 8;	break;
 		case DebugType::Delete:		printf("Delete  "); length += 8;	break;
 		case DebugType::Remove:		printf("Remove  "); length += 8;	break;
 		case DebugType::Init:		printf("Init    "); length += 8;	break;
 		case DebugType::Compile:	printf("Compile "); length += 8;	break;
 		case DebugType::Load:		printf("Load    "); length += 8;	break;
+		case DebugType::Release:	printf("Release "); length += 8;	break;
+		case DebugType::Bind:		printf("Bind    "); length += 8;	break;
+		case DebugType::Destroy:	printf("Destroy "); length += 8;	break;
+		case DebugType::Pick:		printf("Pick    "); length += 8;	break;
 		default:break;
 		}
 
@@ -93,7 +101,7 @@ public:
 
 		std::string emptySpace = "";
 
-		if (length < 30)
+		if (length < 40)
 		{
 			for (int i = 0; i < 30 - length; i++)
 			{

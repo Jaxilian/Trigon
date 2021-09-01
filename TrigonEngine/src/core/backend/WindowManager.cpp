@@ -16,8 +16,8 @@ WindowManager::GetInstance()
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
-	WindowManager::GetInstance()->width = width;
-	WindowManager::GetInstance()->height = height;
+	WindowManager::GetInstance()->m_Width = width;
+	WindowManager::GetInstance()->m_Height = height;
 	glViewport(0, 0, width, height);
 	//if (Camera::currentCamera) Camera::currentCamera->UpdateProjection();
 }
@@ -49,13 +49,13 @@ WindowManager::CreateInstance()
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	ptr->width = 800;
-	ptr->height = 600;
-	ptr->name = "DEBUG";
+	ptr->m_Width = 800;
+	ptr->m_Height = 600;
+	ptr->m_pName = "DEBUG";
 
-	ptr->window = glfwCreateWindow(ptr->width, ptr->height, ptr->name, NULL, NULL);
+	ptr->m_pWindow = glfwCreateWindow(ptr->m_Width, ptr->m_Height, ptr->m_pName, NULL, NULL);
 
-	if (ptr->window == NULL)
+	if (ptr->m_pWindow == NULL)
 	{
 #ifdef _DEBUG
 		Debug::LogStatus(DebugColor::Red, DebugType::Create, DebugResult::Failed, "Window");
@@ -64,13 +64,13 @@ WindowManager::CreateInstance()
 		return false;
 	}
 
-	glfwMakeContextCurrent(ptr->window);
+	glfwMakeContextCurrent(ptr->m_pWindow);
 
-	glfwSetFramebufferSizeCallback(ptr->window, framebuffer_size_callback);
+	glfwSetFramebufferSizeCallback(ptr->m_pWindow, framebuffer_size_callback);
 
 	Debug::LogStatus(DebugColor::Green, DebugType::Create, DebugResult::Success, "Window");
 
-	glfwSetInputMode(ptr->window, GLFW_STICKY_KEYS, GLFW_TRUE);
+	glfwSetInputMode(ptr->m_pWindow, GLFW_STICKY_KEYS, GLFW_TRUE);
 
 #ifdef _DEBUG
 	Debug::LogStatus(DebugColor::Green, DebugType::Create, DebugResult::Success, "WindowManager");
@@ -83,9 +83,9 @@ WindowManager::ReleaseInstance()
 {
 	if (!ptr)return true;
 
-	if (ptr->window) 
+	if (ptr->m_pWindow) 
 	{
-		glfwDestroyWindow(ptr->window);
+		glfwDestroyWindow(ptr->m_pWindow);
 #ifdef _DEBUG
 		Debug::LogStatus(DebugColor::Green, DebugType::Delete, DebugResult::Success, "Window");
 #endif

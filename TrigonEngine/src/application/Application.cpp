@@ -67,9 +67,9 @@ Application::OnLateUpdate()
 	m_pEditor->Draw();
 	m_pEditor->EndDraw();
 
-	glfwSwapBuffers(WindowManager::GetInstance()->window);
+	glfwSwapBuffers(WindowManager::GetInstance()->m_pWindow);
 	glfwPollEvents();
-	appShouldQuit = glfwWindowShouldClose(WindowManager::GetInstance()->window);
+	appShouldQuit = glfwWindowShouldClose(WindowManager::GetInstance()->m_pWindow);
 	Time::Update();
 }
 

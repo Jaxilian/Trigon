@@ -21,7 +21,7 @@ Editor::Editor()
     //ImGui::StyleColorsClassic();
 
     // Setup Platform/Renderer backends
-    ImGui_ImplGlfw_InitForOpenGL(WindowManager::GetInstance()->window, true);
+    ImGui_ImplGlfw_InitForOpenGL(WindowManager::GetInstance()->m_pWindow, true);
     ImGui_ImplOpenGL3_Init("#version 460");
 
 #ifdef _DEBUG

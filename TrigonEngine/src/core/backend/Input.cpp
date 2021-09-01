@@ -8,7 +8,7 @@ bool  Input::lockCursor;
 bool 
 Input::GetKey(KeyCode keycode)
 {
-	if (glfwGetKey(WindowManager::GetInstance()->window, (int)keycode)) return true;
+	if (glfwGetKey(WindowManager::GetInstance()->m_pWindow, (int)keycode)) return true;
 	return false;
 }
 
@@ -17,14 +17,14 @@ Vector2
 Input::GetMousePosition()
 {
 	double x, y;
-	glfwGetCursorPos(WindowManager::GetInstance()->window, &x, &y);
+	glfwGetCursorPos(WindowManager::GetInstance()->m_pWindow, &x, &y);
 	return Vector2(x, y);
 }
 
 void
 Input::SetMousePosition(Vector2 mousePos)
 {
-	glfwSetCursorPos(WindowManager::GetInstance()->window, mousePos.x, mousePos.y);
+	glfwSetCursorPos(WindowManager::GetInstance()->m_pWindow, mousePos.x, mousePos.y);
 }
 
 Vector2
@@ -32,10 +32,10 @@ Input::GetMouseAxis()
 {
 	Vector2 diff;
 	Vector2 curPos = GetMousePosition();
-	if (lockCursor) SetMousePosition(Vector2(WindowManager::GetInstance()->width / 2, WindowManager::GetInstance()->height / 2));
+	if (lockCursor) SetMousePosition(Vector2(WindowManager::GetInstance()->m_Width / 2, WindowManager::GetInstance()->m_Height / 2));
 
-	diff.x = WindowManager::GetInstance()->width / 2 - curPos.x;
-	diff.y = WindowManager::GetInstance()->height / 2 - curPos.y;
+	diff.x = WindowManager::GetInstance()->m_Width / 2 - curPos.x;
+	diff.y = WindowManager::GetInstance()->m_Height / 2 - curPos.y;
 
 	return diff;
 }
@@ -47,10 +47,10 @@ Input::SetCursorLockState(bool value)
 	switch (value)
 	{
 	case true:
-		glfwSetInputMode(WindowManager::GetInstance()->window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+		glfwSetInputMode(WindowManager::GetInstance()->m_pWindow, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 		break;
 	case false:
-		glfwSetInputMode(WindowManager::GetInstance()->window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+		glfwSetInputMode(WindowManager::GetInstance()->m_pWindow, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 		break;
 	default:
 		break;

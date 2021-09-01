@@ -11,11 +11,11 @@ Camera::Camera(float _radians, float _near, float _far)
 	this->nearPlane = _near;
 	this->farPlane = _far;
 
-	projection.SetProjection(_radians, (float)WindowManager::GetInstance()->width, (float)WindowManager::GetInstance()->height, _near, _far);
+	projection.SetProjection(_radians, (float)WindowManager::GetInstance()->m_Width, (float)WindowManager::GetInstance()->m_Height, _near, _far);
 }
 
 void
 Camera::UpdateProjection()
 {
-	projection.SetProjection(fov, (float)WindowManager::GetInstance()->width, (float)WindowManager::GetInstance()->height, nearPlane, farPlane);
+	projection.SetProjection(fov, (float)WindowManager::GetInstance()->m_Width, (float)WindowManager::GetInstance()->m_Height, nearPlane, farPlane);
 }

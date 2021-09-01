@@ -1,5 +1,5 @@
 #include "Game.h"
-
+/*
 
 
 
@@ -91,3 +91,5 @@ Game::OnQuit()
     delete scene;
     Application::OnQuit();
 }
+
+*/

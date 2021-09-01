@@ -5,10 +5,10 @@
 
 struct WindowPtr
 {
-	GLFWwindow* window;
-	const char* name;
-	int width;
-	int height;
+	GLFWwindow* m_pWindow;
+	const char* m_pName;
+	int m_Width;
+	int m_Height;
 };
 
 class WindowManager
