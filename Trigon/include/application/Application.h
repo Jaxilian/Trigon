@@ -3,10 +3,14 @@
 #include "../core/system/Debug.h"
 
 
+class Renderer;
+class Editor;
+
 class Application
 {
 	protected:
-
+		Renderer* m_pRenderer	= nullptr;
+		Editor*  m_pEditor		= nullptr;
 
 	private:
 

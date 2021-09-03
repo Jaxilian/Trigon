@@ -541,7 +541,7 @@ RendererGL::UseMatrices(Shader* shader)
 
 	for (int i = 0; i < matrices->size(); i++)
 	{
-		glUniformMatrix4fv(matrices->at(i).location, 1, GL_FALSE, &matrices->at(i).value->data[0][0]);
+		glUniformMatrix4fv(matrices->at(i).location, 1, GL_TRUE, &matrices->at(i).value->data[0][0]);
 	}
 }
 

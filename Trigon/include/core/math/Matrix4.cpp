@@ -37,7 +37,7 @@ Matrix4::OrthoNormalize()
 {
 
 	Vector3 worldUp		= Vector3(0, 1, 0).Normalize();
-	Vector3 forward		= Forward().Normalize();
+	Vector3 forward		= GetForward().Normalize();
 	Vector3 right		= Vector3::Cross(	forward, worldUp	).Normalize();
 	Vector3 up			= Vector3::Cross(	right,	forward		).Normalize();
 
@@ -46,25 +46,25 @@ Matrix4::OrthoNormalize()
 	SetRight	(right);
 	SetUp		(up);
 
-	data[0][3] = -Vector3::Dot(right,	 Position());
-	data[1][3] = -Vector3::Dot(up,		 Position());
-	data[2][3] = -Vector3::Dot(forward,  Position());
+	data[0][3] = -Vector3::Dot(right,	 GetPosition());
+	data[1][3] = -Vector3::Dot(up,		 GetPosition());
+	data[2][3] = -Vector3::Dot(forward,  GetPosition());
 
 }
 
 void 
 Matrix4::LookAt(const Vector3& target)
 {
-	Vector3 direction = const_cast<Vector3&>(target) - Position();
+	Vector3 direction = const_cast<Vector3&>(target) - GetPosition();
 	SetForward(direction);
 	OrthoNormalize();
-	pos = Position();
+	pos = GetPosition();
 	SetPosition(Vector3(0, 0, 0));
 	eular = GetEularAngles();
 }
 
 Vector3
-Matrix4::Forward()
+Matrix4::GetForward()
 {
 	Vector3 vec;
 	vec.x = data[2][0];
@@ -74,7 +74,7 @@ Matrix4::Forward()
 }
 
 Vector3
-Matrix4::Up() 
+Matrix4::GetUp() 
 {
 	Vector3 vec;
 	vec.x = data[1][0];
@@ -84,7 +84,7 @@ Matrix4::Up()
 }
 
 Vector3
-Matrix4::Right() 
+Matrix4::GetRight() 
 {
 	Vector3 vec;
 	vec.x = data[0][0];
@@ -94,13 +94,25 @@ Matrix4::Right()
 }
 
 Vector3
-Matrix4::Position()
+Matrix4::GetPosition()
 {
 
 	pos.x = data[3][0];
 	pos.y = data[3][1];
 	pos.z = data[3][2];
 	return pos;
+}
+
+Vector3
+Matrix4::GetScale() 
+{
+	Vector3 scale;
+
+	scale.x = data[0][0];
+	scale.y = data[1][1];
+	scale.z = data[2][2];
+
+	return scale;
 }
 
 void

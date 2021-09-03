@@ -21,6 +21,8 @@ public:
 	virtual void	Unload(void) override;
 	virtual void	Update(void) override;
 
+	void SetProjection(float fov, float aspect, float near, float far);
+
 	/////////////////////////////////////////////////////////////////////////
 
 	void			SetAsCurrentCamera();

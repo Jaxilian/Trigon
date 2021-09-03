@@ -6,7 +6,7 @@ CameraComponent* CameraComponent::activeCamera = nullptr;
 
 CameraComponent::CameraComponent()
 {
-	
+	transform		= nullptr;
 	activeCamera	= this;
 }
 
@@ -18,7 +18,7 @@ CameraComponent::~CameraComponent()
 void
 CameraComponent::Load(void)
 {
-
+	transform = &const_cast<TransformComponent*>(GetParent()->GetComponent<TransformComponent>())->matrix;
 }
 
 void
@@ -37,6 +37,12 @@ void
 CameraComponent::SetAsCurrentCamera()
 {
 	activeCamera = this;
+}
+
+void 
+CameraComponent::SetProjection(float fov, float aspect, float near, float far)
+{
+	projection.SetProjection(fov, aspect, near, far);
 }
 
 Matrix4&

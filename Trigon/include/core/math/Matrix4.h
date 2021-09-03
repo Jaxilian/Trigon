@@ -65,10 +65,11 @@ public:
 
 	void QuickPrint();
 
-	Vector3 Forward();
-	Vector3 Up();
-	Vector3 Right();
-	Vector3 Position();
+	Vector3 GetForward();
+	Vector3 GetUp();
+	Vector3 GetRight();
+	Vector3 GetPosition();
+	Vector3 GetScale();
 
 	void	SetForward(const Vector3& direction);
 	void	SetUp(const Vector3& direction);

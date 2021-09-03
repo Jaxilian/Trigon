@@ -37,6 +37,10 @@
     <ClCompile Include="include\editor\backend\imgui_impl_opengl3.cpp" />
     <ClCompile Include="include\editor\backend\imgui_tables.cpp" />
     <ClCompile Include="include\editor\backend\imgui_widgets.cpp" />
+    <ClCompile Include="include\editor\Editor.cpp" />
+    <ClCompile Include="include\editor\windows\WindowHierarchy.cpp" />
+    <ClCompile Include="include\editor\windows\Window.cpp" />
+    <ClCompile Include="include\editor\windows\WindowInspector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\core\math\Matrix4.h" />
@@ -80,5 +84,9 @@
     <ClInclude Include="include\editor\backend\imstb_rectpack.h" />
     <ClInclude Include="include\editor\backend\imstb_textedit.h" />
     <ClInclude Include="include\editor\backend\imstb_truetype.h" />
+    <ClInclude Include="include\editor\Editor.h" />
+    <ClInclude Include="include\editor\windows\WindowHierarchy.h" />
+    <ClInclude Include="include\editor\windows\Window.h" />
+    <ClInclude Include="include\editor\windows\WindowInspector.h" />
   </ItemGroup>
 </Project>
