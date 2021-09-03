@@ -80,7 +80,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)$(ProjectName)\libs\$(Configuration)\</OutDir>
     <IntDir>intermediate\$(Configuration)\</IntDir>
-    <PublicIncludeDirectories>C:\VulkanSDK\1.2.182.0\Include;$(SolutionDir)Trigon\dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <PublicIncludeDirectories>$(SolutionDir)Trigon\dependencies\OpenFBX;$(SolutionDir)Trigon\dependencies\singleFiles;$(SolutionDir)Trigon\dependencies\glad\include;$(SolutionDir)Trigon\dependencies\glfw-3.3.4.bin.WIN64\include;$(PublicIncludeDirectories)</PublicIncludeDirectories>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -124,15 +124,15 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>C:\VulkanSDK\1.2.182.0\Include;$(SolutionDir)Trigon\dependencies\glfw-3.3.4.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Trigon\dependencies\OpenFBX;$(SolutionDir)Trigon\dependencies\singleFiles;$(SolutionDir)Trigon\include;$(SolutionDir)Trigon\dependencies\glad\include;$(SolutionDir)Trigon\dependencies\glfw-3.3.4.bin.WIN64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glfw3.lib;vulkan-1.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\VulkanSDK\1.2.182.0\Lib;$(SolutionDir)Trigon\dependencies\glfw-3.3.4.bin.WIN64\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Trigon\dependencies\OpenFBX;$(SolutionDir)Trigon\dependencies\singleFiles;$(SolutionDir)Trigon\dependencies\glad\src;$(SolutionDir)Trigon\dependencies\glfw-3.3.4.bin.WIN64\lib-vc2019;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -159,24 +159,85 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dependencies\glad\src\gl.c" />
+    <ClCompile Include="dependencies\OpenFBX\miniz.c" />
+    <ClCompile Include="dependencies\OpenFBX\ofbx.cpp" />
+    <ClCompile Include="include\application\Application.cpp" />
+    <ClCompile Include="include\application\Entry.cpp" />
     <ClCompile Include="include\core\math\Matrix4.cpp" />
     <ClCompile Include="include\core\math\Vector2.cpp" />
     <ClCompile Include="include\core\math\Vector3.cpp" />
-    <ClCompile Include="include\core\Renderer.cpp" />
-    <ClCompile Include="include\core\vk\vkSettings.cpp" />
-    <ClCompile Include="include\core\WindowManager.cpp" />
+    <ClCompile Include="include\core\system\Input.cpp" />
+    <ClCompile Include="include\core\system\Renderer.cpp" />
+    <ClCompile Include="include\core\system\RendererGL.cpp" />
+    <ClCompile Include="include\core\system\Time.cpp" />
+    <ClCompile Include="include\core\system\WindowManager.cpp" />
+    <ClCompile Include="include\core\types\Material.cpp" />
+    <ClCompile Include="include\core\types\Mesh.cpp" />
+    <ClCompile Include="include\core\types\Model.cpp" />
+    <ClCompile Include="include\core\types\Shader.cpp" />
+    <ClCompile Include="include\core\types\Texture2D.cpp" />
+    <ClCompile Include="include\editor\backend\imgui.cpp" />
+    <ClCompile Include="include\editor\backend\imgui_demo.cpp" />
+    <ClCompile Include="include\editor\backend\imgui_draw.cpp" />
+    <ClCompile Include="include\editor\backend\imgui_impl_glfw.cpp" />
+    <ClCompile Include="include\editor\backend\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="include\editor\backend\imgui_tables.cpp" />
+    <ClCompile Include="include\editor\backend\imgui_widgets.cpp" />
+    <ClCompile Include="include\engine\components\CameraComponent.cpp" />
+    <ClCompile Include="include\engine\components\Component.cpp" />
+    <ClCompile Include="include\engine\components\DirectionLightComponent.cpp" />
+    <ClCompile Include="include\engine\components\ModelComponent.cpp" />
+    <ClCompile Include="include\engine\components\TransformComponent.cpp" />
+    <ClCompile Include="include\engine\entities\Entity.cpp" />
+    <ClCompile Include="include\engine\managers\ModelManager.cpp" />
+    <ClCompile Include="include\engine\managers\TextureManager.cpp" />
+    <ClCompile Include="include\engine\materials\DefaultMaterial.cpp" />
+    <ClCompile Include="include\engine\scenes\Scene.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dependencies\glad\include\glad\gl.h" />
+    <ClInclude Include="dependencies\glad\include\KHR\khrplatform.h" />
+    <ClInclude Include="dependencies\OpenFBX\miniz.h" />
+    <ClInclude Include="dependencies\OpenFBX\ofbx.h" />
+    <ClInclude Include="dependencies\singleFiles\stb_image.h" />
+    <ClInclude Include="include\application\Application.h" />
     <ClInclude Include="include\core\math\Matrix4.h" />
     <ClInclude Include="include\core\math\Vector2.h" />
     <ClInclude Include="include\core\math\Vector3.h" />
-    <ClInclude Include="include\core\vk\Backend.h" />
-    <ClInclude Include="include\core\Debug.h" />
-    <ClInclude Include="include\core\Renderer.h" />
+    <ClInclude Include="include\core\system\Debug.h" />
+    <ClInclude Include="include\core\system\Input.h" />
+    <ClInclude Include="include\core\system\Renderer.h" />
+    <ClInclude Include="include\core\system\RendererGL.h" />
+    <ClInclude Include="include\core\system\Time.h" />
+    <ClInclude Include="include\core\system\WindowManager.h" />
     <ClInclude Include="include\core\TriCore.h" />
-    <ClInclude Include="include\core\vk\vkSettings.h" />
-    <ClInclude Include="include\core\WindowManager.h" />
+    <ClInclude Include="include\core\types\Material.h" />
+    <ClInclude Include="include\core\types\Mesh.h" />
+    <ClInclude Include="include\core\types\Model.h" />
+    <ClInclude Include="include\core\types\Shader.h" />
+    <ClInclude Include="include\core\types\Texture2D.h" />
+    <ClInclude Include="include\core\types\TriTypes.h" />
+    <ClInclude Include="include\editor\backend\imconfig.h" />
+    <ClInclude Include="include\editor\backend\imgui.h" />
+    <ClInclude Include="include\editor\backend\imgui_impl_glfw.h" />
+    <ClInclude Include="include\editor\backend\imgui_impl_opengl3.h" />
+    <ClInclude Include="include\editor\backend\imgui_internal.h" />
+    <ClInclude Include="include\editor\backend\imgui_single_file.h" />
+    <ClInclude Include="include\editor\backend\imstb_rectpack.h" />
+    <ClInclude Include="include\editor\backend\imstb_textedit.h" />
+    <ClInclude Include="include\editor\backend\imstb_truetype.h" />
+    <ClInclude Include="include\engine\components\CameraComponent.h" />
+    <ClInclude Include="include\engine\components\Component.h" />
+    <ClInclude Include="include\engine\components\DirectionLightComponent.h" />
+    <ClInclude Include="include\engine\components\ModelComponent.h" />
+    <ClInclude Include="include\engine\components\TransformComponent.h" />
+    <ClInclude Include="include\engine\entities\Entity.h" />
+    <ClInclude Include="include\engine\managers\ModelManager.h" />
+    <ClInclude Include="include\engine\managers\TextureManager.h" />
+    <ClInclude Include="include\engine\materials\DefaultMaterial.h" />
+    <ClInclude Include="include\engine\scenes\Scene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

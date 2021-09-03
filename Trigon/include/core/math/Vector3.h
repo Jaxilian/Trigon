@@ -5,9 +5,25 @@
 class Vector3
 {
 public:
-	float x;
-	float y;
-	float z;
+	float data[3]{0,0,0};
+
+	float& x = data[0];
+	float& y = data[1];
+	float& z = data[2];
+
+	float& operator[] (const int& rhs)
+	{
+		return data[0];
+	}
+
+	Vector3& operator = (const Vector3& rhs)
+	{
+		x = rhs.x;
+		y = rhs.y;
+		z = rhs.z;
+
+		return *this;
+	}
 
 	Vector3& operator - (const Vector3& rhs) 
 	{

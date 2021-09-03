@@ -1,15 +1,12 @@
 #ifndef GAME_H
 #define GAME_H
-/*
+
 #include "application/Application.h"
-#include "Trigon.h"
 
 class Game : public Application
 {
 private:
-	Scene* scene;
-	Entity* camera;
-	Entity* model;
+	
 
 public:
 
@@ -29,16 +26,5 @@ Application* CreateApplication()
 	return new Game();
 }
 
-*/
-
-#include "core\Renderer.h"
-
-int main() 
-{
-	Renderer::CreateInstance();
-
-	Renderer::DestroyInstance();
-	return 0;
-}
 
 #endif // !GAME_H
