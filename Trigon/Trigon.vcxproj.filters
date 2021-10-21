@@ -1,2 +1,54 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="env">
+      <UniqueIdentifier>{2E6F880B-9A78-887C-23F4-9E7C8FFC937C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="vk">
+      <UniqueIdentifier>{E6795900-D205-880B-3BB4-880B275F880B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win">
+      <UniqueIdentifier>{13BB880B-7FC4-887C-0840-9F7C7448947C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win\dep">
+      <UniqueIdentifier>{3B89E1C8-A768-6064-B080-EB3A1CDFC6C5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win\dep\include">
+      <UniqueIdentifier>{AEBB9585-1A47-034A-2358-863E8F625F4A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win\dep\include\GLFW">
+      <UniqueIdentifier>{ADF3BE18-9982-48E2-42A1-5CDD2E0F5988}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\vk\device.h">
+      <Filter>vk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vk\pipeline.h">
+      <Filter>vk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\win\dep\include\GLFW\glfw3.h">
+      <Filter>win\dep\include\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="src\win\dep\include\GLFW\glfw3native.h">
+      <Filter>win\dep\include\GLFW</Filter>
+    </ClInclude>
+    <ClInclude Include="src\win\win.h">
+      <Filter>win</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\env\main.cpp">
+      <Filter>env</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vk\device.cpp">
+      <Filter>vk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vk\pipeline.cpp">
+      <Filter>vk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\win\win.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
