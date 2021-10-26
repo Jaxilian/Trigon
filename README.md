@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="https://github.com/Jaxilian/Trigon/blob/main/Trigon_transp.png" alt="Logo" width="512" height="512">
+    <img src="https://github.com/Jaxilian/Trigon/blob/main/info/Trigon_transp.png" alt="Logo" width="512" height="512">
     <br>
     <a href="https://www.adamandersson.com/">Logo credits</a>
   </a>
@@ -24,7 +24,7 @@
 ## About The Project
 Trigon - Game Engine, was created in 2021 by me as a protfolio project to use in applications for work. The goal is to make the engine available on Linux/Debian based distros and windows. 
 Trigon supports OpenGL 4.6 and in the future vulkan as well. 
-<img src="https://github.com/Jaxilian/Trigon/blob/main/Sk21.png" alt="EditorPreview" width="823" height="637">
+<img src="https://github.com/Jaxilian/Trigon/blob/main/info/Screenshot from 2021-10-26 15-52-22.png" alt="EditorPreview" width="823" height="637">
 
 
 <!-- GETTING STARTED -->
