@@ -22,10 +22,11 @@
 </p>
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-Trigon - Game Engine, was created in 2021 by me as a protfolio project to use in applications for work. The goal is to make the engine available on Linux/Debian based distros and windows. 
+Trigon - Game Engine, was created in 2021 by me as a protfolio project to use in applications for work. The goal is to make the engine available on Linux/Debian based distros and (perhaps)windows. 
 Trigon supports OpenGL 4.6 and in the future vulkan as well. 
 <img src="https://github.com/Jaxilian/Trigon/blob/main/info/Screenshot from 2021-10-26 15-52-22.png" alt="EditorPreview" width="823" height="637">
 
+This project will also be tested with gpm. Which is a project I'm wokring on that makes installations more easier for different system. 
 
 <!-- GETTING STARTED -->
 ## Status
@@ -37,19 +38,24 @@ Currently broken - why?, because of me rebuilding the foundation and replacing g
 
 This section will be expanded when the documentation is done.
 <!-- ROADMAP -->
+
 ## Roadmap
 See the [Trello Board](https://trello.com/b/97EPGds5/trigon) for a list of proposed features (and known issues).
 ## Architecture Philosophy
 <img src="https://github.com/Jaxilian/Trigon/blob/main/FlowChart.png" alt="FlowChart" width="794" height="794">
 <!-- CONTRIBUTING -->
+
 ## Contributing
 For the moment I have no plans on making this project available for contributions. However, when and if this project reaches to a stable point, it might be.
 <!-- LICENSE -->
+
 ## License
 This is a personal project made for my portfolio. 
+
 <!-- CONTACT -->
 ## Contact
 Jax.Carls@gmail.com
+
 <!-- ACKNOWLEDGEMENTS -->
 ## Third Party Packages
 * [Glad](https://github.com/Dav1dde/glad)
@@ -58,8 +64,8 @@ Jax.Carls@gmail.com
 * [stb_image.h](https://github.com/nothings/stb)
 * [OpenFBX](https://github.com/nem0/OpenFBX)
 * [PhysX](https://github.com/NVIDIAGameWorks/PhysX)
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
 [contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=for-the-badge
