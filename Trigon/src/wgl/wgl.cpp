@@ -20,6 +20,9 @@
 unsigned int    vertexArrayID; 
 unsigned int    currentProgramID;
 Color           bgColor = glm::vec4(1.0f,1.0f,0.0f, 1.0f);
+
+
+
 //////////////////////////////////////////////////////////////////////
 //																	//
 //		OpenGL Callback												//
@@ -533,8 +536,31 @@ wgl::setVec3Uniform(u_int32_t location, glm::vec3& vecRef)
 }
 
 void                        
-wgl::setTex2Uniform(u_int32_t location, Texture2D& texRef)
+wgl::setTex2Uniforms(std::vector<Texture2D>* textures)
 {
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, texRef.glTextureID);
+    for(int i = 0; i < textures->size(); i++)
+    {
+        switch(i)
+        {
+            case 0:glActiveTexture(GL_TEXTURE0);break;
+            case 1:glActiveTexture(GL_TEXTURE1);break;
+            case 2:glActiveTexture(GL_TEXTURE2);break;
+            case 3:glActiveTexture(GL_TEXTURE3);break;
+            case 4:glActiveTexture(GL_TEXTURE4);break;
+            case 5:glActiveTexture(GL_TEXTURE5);break;
+            case 6:glActiveTexture(GL_TEXTURE6);break;
+            case 7:glActiveTexture(GL_TEXTURE7);break;
+            case 8:glActiveTexture(GL_TEXTURE8);break;
+            case 9:glActiveTexture(GL_TEXTURE9);break;
+            case 10:glActiveTexture(GL_TEXTURE10);break;
+            case 11:glActiveTexture(GL_TEXTURE11);break;
+            case 12:glActiveTexture(GL_TEXTURE12);break;
+            case 13:glActiveTexture(GL_TEXTURE13);break;
+            case 14:glActiveTexture(GL_TEXTURE14);break;
+            case 15:glActiveTexture(GL_TEXTURE15);break;
+            default:   return;
+        }
+        glBindTexture(GL_TEXTURE_2D, textures->at(i).glTextureID);
+        glUniform1i(textures->at(i).glTextureLocation, i); 
+    }
 }

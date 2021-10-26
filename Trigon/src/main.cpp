@@ -19,19 +19,39 @@ int main()
     Model model;
     modelmanager::LoadObj("models/town.obj", "models/", &model, false);
 
+    Model cube;
+    modelmanager::LoadObj("models/House.obj","models/", &cube, false);
+
+    Model monkey;
+    modelmanager::LoadObj("models/monkey.obj", "models/", &monkey, false);
+    
     editor::create();
 
     wgl::bindModel(&model);
+    wgl::bindModel(&cube);
+    wgl::bindModel(&monkey);
 
     for(int i = 0; i < model.meshes.size(); i++)
     {
         model.meshes.at(i).material = simpleMat;
     }
 
+     for(int i = 0; i < cube.meshes.size(); i++)
+    {
+        cube.meshes.at(i).material = simpleMat;
+    }
+
+       for(int i = 0; i < cube.meshes.size(); i++)
+    {
+        monkey.meshes.at(i).material = simpleMat;
+    }
+
     while(!win::shouldQuit())
     {
         wgl::clear();
-        wgl::drawModel(&model);
+        //wgl::drawModel(&model);
+        //wgl::drawModel(&cube);
+        wgl::drawModel(&monkey);
         editor::begin();
         editor::draw();
         editor::end();
@@ -40,6 +60,8 @@ int main()
     }
 
     editor::release();
+    wgl::unbindModel(&monkey);
+    wgl::unbindModel(&cube);
     wgl::unbindModel(&model);
     wgl::destroyMaterial(simpleMat.get());
     wgl::release();

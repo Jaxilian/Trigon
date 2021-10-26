@@ -23,7 +23,7 @@ namespace wgl
     u_int32_t                   getUniformLocation(u_int32_t programID, std::string location);
     void                        setMat4Uniform(u_int32_t location, glm::mat4& matRef);
     void                        setVec3Uniform(u_int32_t location, glm::vec3& vecRef);
-    void                        setTex2Uniform(u_int32_t location, Texture2D& texRef);
+    void                        setTex2Uniforms(std::vector<Texture2D>* textures);
 }
 
 

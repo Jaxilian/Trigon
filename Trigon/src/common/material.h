@@ -3,6 +3,7 @@
 #include <string>
 #include <glm/vec3.hpp>
 #include "Texture2D.h"
+#include <vector>
 
 struct Mesh;
 
@@ -14,14 +15,14 @@ struct Material
 
     static glm::vec3 lightDir;
 
-    Texture2D albedoTexture;
+    std::vector<Texture2D> textures;
 
     unsigned int M;
     unsigned int V;
     unsigned int P;
     unsigned int L;
 
-    unsigned int albedo;
+
 
     void onCreation();
 

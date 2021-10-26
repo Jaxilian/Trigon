@@ -9,6 +9,7 @@ struct Texture2D
     unsigned char*  data;
     
     unsigned int    glTextureID;
+    unsigned int    glTextureLocation;
     bool            glBinded;
 };
 
