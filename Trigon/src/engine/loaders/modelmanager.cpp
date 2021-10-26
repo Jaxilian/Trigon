@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cassert>
 #include "common/workdirs.h"
+#include "gl/glrend.h"
 
 bool loadObj(const char* modelPath, const char* matPath, tinyobj::attrib_t& attr, std::vector<tinyobj::shape_t>& shapes, std::vector<tinyobj::material_t>& materials)
 {
@@ -283,7 +284,7 @@ modelmanager::LoadObj(const char* path, const char* matPath, Model* model)
 		
         model->meshes.push_back(mesh);
     }
-
+	glrend::bindModel(*model);
     return true;
 
 }
