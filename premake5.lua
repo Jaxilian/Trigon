@@ -28,11 +28,11 @@ project "Trigon"
         "Trigon/src/**.hpp"
         }
     includedirs { 
-        "Trigon/src/engine/gl/dependencies/include",
-        "Trigon/src/engine/math/dependencies",
-        "Trigon/src/engine",
+        "Trigon/src/wgl/dependencies/include",
+        "Trigon/src/math/dependencies",
         "Trigon/src"
     }
+
 
     filter "configurations:Debug"   
        defines { 
