@@ -3,5 +3,6 @@
 /home/jax/vulkan/1.2.189.0/x86_64/bin/glslc ./Trigon/shaders/simple.frag -o ./Trigon/shaders/simple.frag.spv
 make config=debug
 make config=release
+make config=library
 (cd ./Trigon/bin/Debug; ./Trigon)
 

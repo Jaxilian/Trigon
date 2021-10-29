@@ -2,4 +2,3 @@
 make clean
 make config=debug
 make config=release
-(cd ./Trigon/bin/Debug; ./Trigon)
