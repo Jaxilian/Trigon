@@ -19,7 +19,7 @@ editor::create()
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
     ImGui::StyleColorsDark();
 
-    ImGui_ImplGlfw_InitForOpenGL(win::get(), true);
+    ImGui_ImplGlfw_InitForOpenGL((GLFWwindow*)(win::get()), true);
     ImGui_ImplOpenGL3_Init("#version 460");
     #ifdef _DEBUG
     printf("created editor");

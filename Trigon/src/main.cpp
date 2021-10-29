@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include "win/win.h"
 #include "wgl/wgl.h"
 #include "loader/loader.h"
@@ -69,3 +69,4 @@ int main()
     std::cout << "application ended succefully!" << std::endl;
     return 0;
 }
+*/

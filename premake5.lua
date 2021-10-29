@@ -2,18 +2,18 @@ workspace "Wildsoft"
 
 configurations {
         "Debug",
-        "Release" 
+        "Release",
+        "Library"
     }
 
 ----------------- Trigon ------------------------
 
 project "Trigon"  
-
-    kind "ConsoleApp"   
     language "C++"   
     targetdir "Trigon/bin/%{cfg.buildcfg}"
     objdir "Trigon/obj/%{cfg.buildcfg}"
     cppdialect "C++20"
+    cdialect("C11")
     staticruntime "on"
 
     links { 
@@ -37,15 +37,22 @@ project "Trigon"
     filter "configurations:Debug"   
        defines { 
            "DEBUG",
-           "_DEBUG"
+           "_DEBUG",
+           "NLIBRARY"
         }
         optimize "Debug"
         symbols "On"
+        kind "ConsoleApp"   
 
 
     filter "configurations:Release"      
-        defines { "NDEBUG" }
+        defines { "NDEBUG", "NLIBRARY" }
               
         optimize "Full"
         symbols "Off"
+        kind "ConsoleApp"   
+
+    filter "configurations:Library"      
+        removefiles {"Trigon/src/main.cpp"}
+        kind "StaticLib"   
 

@@ -2,7 +2,8 @@
 #include <vector>
 #include <iostream>
 #include <unordered_set>
-
+#define GLFW_INCLUDE_VULKAN
+#include <GLFW/glfw3.h>
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -222,11 +223,11 @@ void win::getVkExtensions()
   }
 }
 
-GLFWwindow* win::get(){return window;}
+void* win::get(){return window;}
 
-void win::createSurface(VkInstance instance, VkSurfaceKHR* surface)
+void win::createSurface(void* instance, void* surface)
 {
-    if (glfwCreateWindowSurface(instance, window, nullptr, surface) != VK_SUCCESS) throw std::runtime_error("failed to create window surface!");
+    if (glfwCreateWindowSurface(static_cast<VkInstance>(instance), window, nullptr, (VkSurfaceKHR*)(surface)) != VK_SUCCESS) throw std::runtime_error("failed to create window surface!");
 }
 
 bool win::isOk()
@@ -263,5 +264,13 @@ float win::getWidth()
     return winWidth;
 }
 
+
 win::graphicsAPI
 win::getGraphicsAPI(){return winAPI;}
+
+
+ bool 
+ input::getKey(KeyCode kc)
+ {
+     return glfwGetKey(window, kc);
+ }

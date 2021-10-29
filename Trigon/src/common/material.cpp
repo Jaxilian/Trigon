@@ -13,6 +13,7 @@ glm::mat4 tempCameraPos         = glm::lookAt(
 						        );
 
 glm::vec3 Material::lightDir = glm::vec3(1.0f, 1.45f, 1.0f);
+float   Material::emission = 1.0f;
 
 void
 Material::onCreation()
@@ -23,6 +24,7 @@ Material::onCreation()
     P = wgl::getUniformLocation(programID, "P");
     L = wgl::getUniformLocation(programID, "L");
 
+    emissionStength = wgl::getUniformLocation(programID, "emissionStength");
 
 
     // Load albedo
@@ -67,10 +69,11 @@ void
 Material::OnDraw(Mesh* mesh)
 {
     if(!mesh->parent.transform) wgl::setMat4Uniform(M, origin);
+    else wgl::setMat4Uniform(M, origin);
     
-    wgl::setMat4Uniform(M, origin);
     wgl::setMat4Uniform(P, defaultPerspective);
     wgl::setMat4Uniform(V, tempCameraPos);
     wgl::setVec3Uniform(L, lightDir);
     wgl::setTex2Uniforms(&textures);
+    wgl::setFloatUniform(emissionStength,emission);
 }

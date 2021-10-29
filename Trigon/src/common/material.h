@@ -14,6 +14,7 @@ struct Material
     bool        glBinded;
 
     static glm::vec3 lightDir;
+    static float     emission;
 
     std::vector<Texture2D> textures;
 
@@ -21,7 +22,7 @@ struct Material
     unsigned int V;
     unsigned int P;
     unsigned int L;
-
+    unsigned int emissionStength;
 
 
     void onCreation();

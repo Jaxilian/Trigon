@@ -10,6 +10,7 @@
 #include "common/workdirs.h"
 #include "common/mesh.h"
 #include <stdexcept>
+#include <GLFW/glfw3.h>
 
 //////////////////////////////////////////////////////////////////////
 //																	//
@@ -563,4 +564,10 @@ wgl::setTex2Uniforms(std::vector<Texture2D>* textures)
         glBindTexture(GL_TEXTURE_2D, textures->at(i).glTextureID);
         glUniform1i(textures->at(i).glTextureLocation, i); 
     }
+}
+
+void                       
+wgl::setFloatUniform(u_int32_t location, float& value)
+{
+    glUniform1fv(location, 1, &value);
 }
