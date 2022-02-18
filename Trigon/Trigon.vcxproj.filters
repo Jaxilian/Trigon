@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="src\app\Application.h" />
+    <ClInclude Include="src\libref.h" />
+    <ClInclude Include="src\gpu\gpu.h" />
+    <ClInclude Include="src\Tricore.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\app\Application.cpp" />
+    <ClCompile Include="src\app\entry.cpp" />
+    <ClCompile Include="src\gpu\vk_instance.cpp" />
+    <ClCompile Include="src\gpu\vk_physical_device.cpp" />
+    <ClCompile Include="src\gpu\vk_surface.cpp" />
+    <ClCompile Include="src\gpu\vk_logical_device.cpp" />
+    <ClCompile Include="src\gpu\vk_descriptors.cpp" />
+    <ClCompile Include="src\gpu\vk_pipeline.cpp" />
+    <ClCompile Include="src\gpu\vk_renderer.cpp" />
+    <ClCompile Include="src\gpu\vk_swapchain.cpp" />
+  </ItemGroup>
+</Project>
